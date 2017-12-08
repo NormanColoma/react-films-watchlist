@@ -39,24 +39,6 @@ ul li {
   float: left;
 }
 
-.navlist {
-  padding-left: 10px;
-}
-
-.navlist li {
-  padding-right: 25px;
-}
-
-.navlist li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.navlist li a:hover {
-  color: #008CBA;
-  text-decoration: underline;
-}
-
 .default-margin {
   margin-top: 20px;
 }

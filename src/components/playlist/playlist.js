@@ -1,5 +1,5 @@
 import React from 'react';
-import FilmDetail from './film-detail';
+import FilmDetail from './playlist-film-detail/film-detail';
 import './playlist.css';
 
 const FilmPlaylist = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist }) => {

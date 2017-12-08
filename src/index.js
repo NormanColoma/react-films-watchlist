@@ -1,27 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import FilmPlaylist from  './playlist';
-import WatchList from './watchlist';
+import App from './containers/App';
+import FilmPlaylist from  './components/playlist/playlist';
+import WatchList from './components/watchlist/watchlist';
+import Nav from './components/nav/nav';
 import registerServiceWorker from './registerServiceWorker';
-import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 ReactDOM.render((
     <Router>
         <div className="App">
-            <header className="App-header">
-                <h1 className="App-title">WatchList Maker</h1>
-                <ul className="navlist">
-                    <li>
-                        <NavLink exact to="/">Films</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/watchlist">Watchlist</NavLink>
-                    </li>
-                </ul>
-            </header>
+            <Nav />
             <Route exact path='/' component={App} />
             <Route path='/playlist' component={App} />
             <Route path='/watchlist' component={WatchList} />

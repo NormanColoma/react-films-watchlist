@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import FilmPlaylist from './playlist';
-import WatchList from './watchlist';
+import FilmPlaylist from '../components/playlist/playlist';
+import WatchList from '../components/watchlist/watchlist';
 import { addFilm, removeFilm } from './add-film-state';
 import './App.css';
-import './buttons.css'
+import '../buttons.css'
 
 class App extends Component {
   state = { 
