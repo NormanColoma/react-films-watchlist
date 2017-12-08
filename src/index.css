@@ -3,3 +3,22 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+div {
+  float: left;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  float: left;
+  margin-bottom: 0;
+}
+
+ul li {
+  float: left;
+}
+
+.active {
+  color: #008CBA !important;
+}

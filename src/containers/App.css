@@ -23,26 +23,3 @@
 .App-intro {
   font-size: large;
 }
-
-div {
-  float: left;
-  width: 100%;
-}
-
-ul {
-  list-style: none;
-  float: left;
-  margin-bottom: 0;
-}
-
-ul li {
-  float: left;
-}
-
-.default-margin {
-  margin-top: 20px;
-}
-
-.active {
-  color: #008CBA !important;
-}
