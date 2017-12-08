@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FilmPlaylist from './playlist';
+import WatchList from './watchlist';
 import { addFilm, removeFilm } from './add-film-state';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -30,14 +30,6 @@ class App extends Component {
       watchlist: []
   };
 
-  componentWillMount() {
-    debugger;
-  }
-
-  componentWillUpdate() {
-    debugger;
-  }
-
   handleAddFilmToWatchlist(film) {
     this.setState(addFilm(film));
   }
@@ -50,10 +42,7 @@ class App extends Component {
     const pendingFilms = this.state.watchlist.length === 0 ? null : <p>You have {this.state.watchlist.length} films pending!!</p>;
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Make your playlist</h1>
-        </header>
+      <div>
         <FilmPlaylist 
           className="App-intro" 
           playlist={this.state.playlist}

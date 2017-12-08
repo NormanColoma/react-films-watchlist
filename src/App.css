@@ -17,6 +17,7 @@
 
 .App-title {
   font-size: 1.5em;
+  margin-bottom: 0;
 }
 
 .App-intro {
@@ -25,16 +26,40 @@
 
 div {
   float: left;
+  width: 100%;
 }
 
 ul {
   list-style: none;
   float: left;
+  margin-bottom: 0;
 }
+
+ul li {
+  float: left;
+}
+
+.navlist {
+  padding-left: 10px;
+}
+
+.navlist li {
+  padding-right: 25px;
+}
+
+.navlist li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navlist li a:hover {
+  color: #008CBA;
+  text-decoration: underline;
+}
+
 
 .playlist li{
   width: 100%;
-  float: left;
   padding-bottom: 50px;
 }
 
@@ -106,4 +131,8 @@ ul {
   color: #4CAF50;
   border-style: solid;
   border-width: 1px;
+}
+
+.active {
+  color: #008CBA !important;
 }
