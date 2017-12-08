@@ -1,0 +1,109 @@
+.App {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 75px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+div {
+  float: left;
+}
+
+ul {
+  list-style: none;
+  float: left;
+}
+
+.playlist li{
+  width: 100%;
+  float: left;
+  padding-bottom: 50px;
+}
+
+.film.title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.5em;
+  margin: 20px;
+}
+
+.film.container {
+  float: left;
+}
+
+.film.container img {
+  width: 150px;
+  border-radius: 2px;
+  float: left;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.film.container p {
+  float: left;
+  width: 85%;
+  margin-left: 15px;
+}
+
+.default-margin {
+  margin-top: 20px;
+}
+
+.default-btn {
+  background-color: #008CBA;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+.success-btn {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+} 
+
+.default-btn:hover {
+  background-color: #ffffff;
+  border-color: #008CBA;
+  color: #008CBA;
+  border-style: solid;
+  border-width: 1px;
+}
+.success-btn:hover {
+  background-color: #ffffff;
+  border-color: #4CAF50;
+  color: #4CAF50;
+  border-style: solid;
+  border-width: 1px;
+}
