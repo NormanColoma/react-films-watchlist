@@ -12,10 +12,14 @@ ReactDOM.render((
     <Router>
         <div className="App">
             <header className="App-header">
-                <h1 className="App-title">Funny Playlist</h1>
+                <h1 className="App-title">WatchList Maker</h1>
                 <ul className="navlist">
-                    <li><NavLink exact to="/">Home</NavLink></li>
-                    <li><NavLink to="/watchlist">WatchList</NavLink></li>
+                    <li>
+                        <NavLink exact to="/">Films</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/watchlist">Watchlist</NavLink>
+                    </li>
                 </ul>
             </header>
             <Route exact path='/' component={App} />

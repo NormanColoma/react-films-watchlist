@@ -3,6 +3,7 @@ import FilmPlaylist from './playlist';
 import WatchList from './watchlist';
 import { addFilm, removeFilm } from './add-film-state';
 import './App.css';
+import './buttons.css'
 
 class App extends Component {
   state = { 
@@ -10,7 +11,8 @@ class App extends Component {
         { 
           id: 1,
           name: 'Shutter Island', 
-          director: 'Martin Scorsese', 
+          director: 'Martin Scorsese',
+          genre: 'Mystery', 
           releaseDate: '2010', 
           posterUrl: 'http://is4.mzstatic.com/image/thumb/Video/v4/70/d7/df/70d7df59-803c-db3e-a13e-0239be4c0738/source/227x227bb.jpg',
           synopsis: `U.S. Marshals Teddy Daniels (Leonardo DiCaprio) and Chuck Aule (Mark Ruffalo) are on a ferryboat in foggy Boston Harbour headed towards Shutter Island, an island containing a federal mental hospital for the criminally insane. They are going to the island because a woman patient named Rachel escaped the day before. Teddy is very ill, sweating and throwing up in the toilet, telling himself to get it together, it's just water. Then he looks out the window and says it's a LOT of water. He goes up on deck to talk to Chuck, and it's apparent that they are new partners working for the first time together. During their conversation it is revealed that Teddy's wife died in an apartment fire several years before. Chuck is sorry he brought it up. He refers to Teddy as boss all the way through the movie, and at one point mentions that Teddy is a legend, so we know that Teddy is well known through the Marshal Service and that he is Chuck's superior.` ,
@@ -20,6 +22,7 @@ class App extends Component {
           id: 2, 
           name: 'Django Unchained',
           director: 'Quentin Tarantino',
+          genre: 'Thriller',
           releaseDate: '2012',
           posterUrl: 'https://images-na.ssl-images-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@._V1_UY1200_CR90,0,630,1200_AL_.jpg',
           synopsis: `In 1858, Django (Jamie Foxx), a slave, is chained to a bunch of other slaves and being marched to his new owner's estate in Texas by the Speck brothers. At nightfall, a German man in a dentist cart pulls up and hails the Speck brothers. He introduces himself as Dr. King Schultz (Christoph Waltz).   
