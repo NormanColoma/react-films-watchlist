@@ -1,9 +1,10 @@
 import React from 'react';
 
-const WatchList = () => {
+const WatchListView = ({ watchlist }) => {
+    debugger;
     return (
         <h1>This is the WatchList</h1>
     );
 };
 
-export default WatchList;
+export default WatchListView;

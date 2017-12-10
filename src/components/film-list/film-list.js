@@ -3,7 +3,6 @@ import FilmDetail from './film-detail/film-detail';
 import './film-list.css';
 
 const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist }) => {
-    debugger;
     const films = playlist.map((film) => {
 
         let input = <input onClick={() => onAddToWatchlist(film)} className="default-btn" type="button" value='Want to watch'/>;

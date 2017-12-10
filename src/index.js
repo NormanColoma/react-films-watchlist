@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App';
-import WatchList from './components/watchlist/watchlist';
+import WatchList from './containers/watchlist/watchlist';
 import Nav from './components/nav/nav';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
