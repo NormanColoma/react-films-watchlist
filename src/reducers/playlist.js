@@ -24,6 +24,15 @@ const initialState = [
 
 const playlist = (state = initialState, action) => {
     switch (action.type) {
+        case 'TOGGLE_FILM': 
+            debugger;
+            const index = state.findIndex(it => it.id === action.id);
+            if (index === -1) {
+                return state;
+            }
+            return Object.assign([], state, {
+                [index]: Object.assign({}, state[index], { inWatchList: !state[index].inWatchList} )
+            });
         default: 
             return state;
     }
