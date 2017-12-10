@@ -16,8 +16,9 @@
 }
 
 .App-title {
-  font-size: 1.5em;
-  margin-bottom: 0;
+  font-size: 2.5em;
+  margin: 0;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .App-intro {

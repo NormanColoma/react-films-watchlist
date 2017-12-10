@@ -19,6 +19,11 @@ ul li {
   float: left;
 }
 
+a {
+  text-decoration: none;
+  color: #008CBA;
+}
+
 .active {
   color: #008CBA !important;
 }

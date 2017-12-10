@@ -5,7 +5,7 @@ import './nav.css';
 const Nav  = () => {
     return(
         <header className="App-header">
-            <h1 className="App-title">WatchList Maker</h1>
+            <h1 className="App-title">Watchlist Maker</h1>
             <ul className="navlist">
                 <li>
                     <NavLink exact to="/">Films</NavLink>
