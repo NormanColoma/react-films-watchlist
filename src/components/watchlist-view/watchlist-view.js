@@ -1,9 +1,11 @@
 import React from 'react';
 
 const WatchListView = ({ watchlist }) => {
-    debugger;
     return (
-        <h1>This is the WatchList</h1>
+        <div>
+            <h1>This is the WatchList</h1>
+            <p>Currently there are {watchlist.length} films added to your watchlist.</p>
+        </div>
     );
 };
 

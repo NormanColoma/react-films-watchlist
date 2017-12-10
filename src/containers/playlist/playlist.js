@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
+//Actions creators
+import { toggleFilm, addToWatchlist, removeFromWatchlist } from '../../actions/index';
+//Components
 import FilmList from '../../components/film-list/film-list';
-import { toggleFilm } from '../../actions/index';
 
 const mapStateToProps = (state) => ({
     playlist: state.playlist
@@ -8,10 +10,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     onAddToWatchlist: film => {
-        dispatch(toggleFilm(film.id))
+        dispatch(toggleFilm(film.id)),
+        dispatch(addToWatchlist(film))
     },
     onRemoveFromWatchlist: film => {
-        dispatch(toggleFilm(film.id))
+        dispatch(toggleFilm(film.id)),
+        dispatch(removeFromWatchlist(film.id))
     }
 });
 
