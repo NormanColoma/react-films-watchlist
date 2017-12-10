@@ -1,8 +1,9 @@
 import React from 'react';
-import FilmDetail from './playlist-film-detail/film-detail';
-import './playlist.css';
+import FilmDetail from './film-detail/film-detail';
+import './film-list.css';
 
-const FilmPlaylist = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist }) => {
+const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist }) => {
+    debugger;
     const films = playlist.map((film) => {
 
         let input = <input onClick={() => onAddToWatchlist(film)} className="default-btn" type="button" value='Want to watch'/>;
@@ -25,4 +26,4 @@ const FilmPlaylist = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist }) => 
     );
 };
 
-export default FilmPlaylist;
+export default FilmList;
