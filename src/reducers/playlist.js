@@ -1,16 +1,21 @@
-const playlist = (state = [], action) => {
+const playlist = (state = {}, action) => {
     switch (action.type) {
         case 'TOGGLE_FILM': 
-            const index = state.findIndex(it => it.id === action.id);
-            if (index === -1) {
+            const { id } = action;
+
+            if (!Object.keys(state).includes(id.toString())) {
                 return state;
             }
-            return Object.assign([], state, {
-                [index]: Object.assign({}, state[index], { inWatchList: !state[index].inWatchList} )
-            });
+
+            const newState = { ...state };
+            newState[id] = Object.assign({}, newState[id], { inWatchList: !newState[id].inWatchList});
+
+            return Object.assign({}, state, newState);
         default: 
             return state;
     }
 };
 
 export default playlist;
+
+export const getPlaylist = (state) => Object.keys(state).map(key => state[key]);

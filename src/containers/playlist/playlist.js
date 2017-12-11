@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
 //Actions creators
 import { toggleFilm, addToWatchlist, removeFromWatchlist } from '../../actions/index';
+
+//Reducers selectors 
+import { getPlaylist } from '../../reducers'
 //Components
 import FilmList from '../../components/film-list/film-list';
 
 const mapStateToProps = (state) => ({
-    playlist: state.playlist
+    playlist: getPlaylist(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({

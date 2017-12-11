@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import playlist from './playlist';
-import watchlist from './watchlist';
+import playlist, * as fromPlaylist from './playlist';
+import watchlist, * as fromWatchlist from './watchlist';
 
 const rootReduder = combineReducers({
     playlist,
@@ -8,3 +8,6 @@ const rootReduder = combineReducers({
 });
 
 export default rootReduder;
+
+export const getPlaylist = (state) => fromPlaylist.getPlaylist(state.playlist);
+export const getWatchlist = (state) => fromWatchlist.getWatchlist(state.watchlist);

@@ -1,20 +1,22 @@
-const watchlist = (state = [], action) => {
+const watchlist = (state = {}, action) => {
     switch (action.type) {
         case 'ADD_TO_WATCHLIST': 
             const { film } = action;
-            const filmNotAddedYet = state.every(it => it.id !== film.id);
+            const filmNotAddedYet = !Object.keys(state).includes(film.id.toString());
 
             if (filmNotAddedYet) {
-                return [ ...state, film];
+                return { ...state, [film.id]: film };
             } 
 
             return state;
         case 'REMOVE_FROM_WATCHLIST': 
-            const watchlist = state.filter(it => it.id !== action.id);
-            return watchlist;
+            const { [action.id.toString()]: deletedItem, ...remainingWatchlist } = state;
+            return remainingWatchlist;
         default: 
             return state;
     }
 };
 
 export default watchlist;
+
+export const getWatchlist = (state) => Object.keys(state).map(key => state[key]);

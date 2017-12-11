@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import { toggleFilm, removeFromWatchlist} from '../../actions/index';
+import { getWatchlist } from '../../reducers';
 import WatchListView from '../../components/watchlist-view/watchlist-view';
 
 
 const mapStateToProps = (state) => ({
-    watchlist: state.watchlist
+    watchlist: getWatchlist(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
