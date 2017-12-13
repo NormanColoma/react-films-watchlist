@@ -1,5 +1,13 @@
 const playlist = (state = {}, action) => {
     switch (action.type) {
+        case 'ADD_TO_PLAYLIST': 
+            debugger;
+            const { film } = action;
+            const filmNotAddedYet = !Object.keys(state).includes(film.id.toString());
+
+            if (filmNotAddedYet) {
+                return { ...state, [film.id]: film };
+            } 
         case 'TOGGLE_FILM': 
             const { id } = action;
 

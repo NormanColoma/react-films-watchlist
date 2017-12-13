@@ -13,8 +13,8 @@ const FilmDetail = ({ film }) => {
                 </div>
                 
             </div>
-            <img src={film.posterUrl} />
-            <p className="synopsys">{film.synopsis}</p>
+            <img src={film.poster} />
+            <p className="synopsys">{film.synopsys}</p>
         </div>
     );
 }
