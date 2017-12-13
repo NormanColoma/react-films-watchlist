@@ -1,5 +1,8 @@
 import fetch from 'cross-fetch';
 import Film from '../domain/Film';
+import FilmAdapter from '../adapters/FilmAdapter';
+
+const API_URL = 'http://www.omdbapi.com/?apiKey=55b399cc';
 
 export const toggleFilm = (id) => ({
   type: 'TOGGLE_FILM',
@@ -23,10 +26,10 @@ export const removeFromWatchlist = (id) => ({
 
 export const fetchFilm = (title) => {
   return dispatch => {
-    return fetch(`http://www.omdbapi.com/?apiKey=55b399cc&t=${title}&plot=full`)
+    return fetch(`${API_URL}&t=${title}&plot=full`)
       .then(response => response.json())
       .then((filmJson) => {
-        const film = new Film(filmJson);
+        const film = FilmAdapter.toDomain(filmJson);
         dispatch(addToPlaylist(film));
       })
   }
