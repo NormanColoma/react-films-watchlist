@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import FilmDetail from './film-detail/film-detail';
 import './film-list.css';
 
@@ -7,13 +8,14 @@ const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist }) => {
 
         let input = <input className="default-btn" type="button" value='See more'/>;
         let onFavFilm = onAddToWatchlist;
+        const linkToDetails = `/films/${film.id}`;
         if(film.inWatchList) {
             onFavFilm = onRemoveFromWatchlist;
         }
 
         return <li key={film.id}>
             <FilmDetail film={film} onFavFilm={onFavFilm} />
-            {input}
+            <Link to={linkToDetails} className="default-btn">See More</Link>
         </li>;
     });
 

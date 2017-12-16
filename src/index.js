@@ -6,6 +6,7 @@ import App from './components/app/App';
 import WatchList from './containers/watchlist/watchlist';
 import Nav from './components/nav/nav';
 import registerServiceWorker from './registerServiceWorker';
+import Film from './components/film/film';
 
 //Router
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -33,6 +34,7 @@ ReactDOM.render((
                 <Nav />
                 <Route exact path='/' component={App} />
                 <Route path='/watchlist' component={WatchList} />
+                <Route path='/films/:id' component={Film} />
             </div>
         </Router>
     </Provider>
