@@ -23,6 +23,8 @@ const store = configureStore();
 
 store.dispatch(fetchFilm('Shutter Island'));
 store.dispatch(fetchFilm('Django Unchained'));
+store.dispatch(fetchFilm('Coco'));
+store.dispatch(fetchFilm('Star Wars: Episode III'));
 
 ReactDOM.render((
     <Provider store={store}>

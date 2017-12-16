@@ -7,7 +7,7 @@ const WatchlistFilm = ({ film, onRemoveFilm }) => {
             <img src={film.poster} />
             <h3 className="title">{film.name}</h3>
             <a onClick={() => onRemoveFilm(film)}>
-                <i className="fas fa-play-circle"></i>
+                <i className="fas fa-heart"></i>
             </a>
             
             <div className="film-extra-details">

@@ -25,7 +25,7 @@ const WatchListView = ({ watchlist, onRemoveFilm }) => {
     });
 
     return (
-        <div>
+        <div className="App-container">
             <div className="watchlist header">
                 <h1 className="watchlist title">Your Watchlist</h1>
                 <h4 className="watchlist subtitle">{watchlist.length} Titles</h4>

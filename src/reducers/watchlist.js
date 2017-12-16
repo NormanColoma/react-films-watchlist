@@ -1,6 +1,8 @@
+import * as Actions from '../actions';
+
 const watchlist = (state = {}, action) => {
     switch (action.type) {
-        case 'ADD_TO_WATCHLIST': 
+        case Actions.ADD_TO_WATCHLIST: 
             const { film } = action;
             const filmNotAddedYet = !Object.keys(state).includes(film.id.toString());
 
@@ -9,7 +11,7 @@ const watchlist = (state = {}, action) => {
             } 
 
             return state;
-        case 'REMOVE_FROM_WATCHLIST': 
+        case Actions.REMOVE_FROM_WATCHLIST: 
             const { [action.id.toString()]: deletedItem, ...remainingWatchlist } = state;
             return remainingWatchlist;
         default: 

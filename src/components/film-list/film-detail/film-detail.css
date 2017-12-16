@@ -7,7 +7,7 @@
   }
   
   .film.extra-details-container {
-    margin: 0px 0px 15px 20px;
+    margin: 10px 0px 10px 20px;
   } 
   .film.extra-details {
     margin: 0px;
@@ -39,4 +39,26 @@
     float: left;
     width: 85%;
     margin-left: 15px;
+  }
+
+  .film.rating, .film.fav {
+    width: initial;
+    margin-left: 15px;
+    margin-top: -10px;
+  }
+
+  .film.rating svg {
+    font-size: 2.2em;
+    color:#d2d2d2;
+    cursor: pointer;
+  }
+
+  .film.rating svg:hover {
+    color: #ce2262;
+  }
+
+  .film.fav svg {
+    font-size: 2.2em;
+    color: #ce2262;
+    cursor: pointer;
   }

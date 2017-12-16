@@ -25,10 +25,14 @@
 
 .watchlist.film svg {
     float: left;
-    color: green;
+    color: #ce2262;
     font-size: 25px;
     padding-left: 5px;
     cursor: pointer;
+}
+
+.watchlist.film svg:hover {
+    color: #6b6b6b;
 }
 
 .watchlist .film-extra-details {
