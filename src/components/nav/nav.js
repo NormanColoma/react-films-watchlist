@@ -8,7 +8,7 @@ const Nav  = () => {
             <h1 className="App-title">Watchlist Maker</h1>
             <ul className="navlist">
                 <li>
-                    <NavLink exact to="/">Films</NavLink>
+                    <NavLink exact to="/films">Films</NavLink>
                 </li>
                 <li>
                     <NavLink to="/watchlist">Watchlist</NavLink>

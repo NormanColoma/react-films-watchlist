@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 //Actions creators
 import { toggleFilm, addToWatchlist, removeFromWatchlist } from '../../actions/index';
 
@@ -22,9 +23,9 @@ const mapDispatchToProps = (dispatch) => ({
     }
 });
 
-const Playlist = connect(
+const Playlist = withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(FilmList);
+)(FilmList));
 
 export default Playlist;

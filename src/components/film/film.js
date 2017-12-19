@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Film = ({ film }) => {
+const Film = ({ match }) => {
+    debugger;
     return (
-        <div>This the film will be displayed</div>
+        <div>Here is where the film will be displayed</div>
     )
 };
 

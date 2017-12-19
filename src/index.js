@@ -3,13 +3,10 @@ import ReactDOM from 'react-dom';
 
 //Components and containers
 import App from './components/app/App';
-import WatchList from './containers/watchlist/watchlist';
-import Nav from './components/nav/nav';
 import registerServiceWorker from './registerServiceWorker';
-import Film from './components/film/film';
 
 //Router
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 //Redux
 import { Provider } from 'react-redux'
@@ -30,12 +27,7 @@ store.dispatch(fetchFilm('Star Wars: Episode III'));
 ReactDOM.render((
     <Provider store={store}>
         <Router>
-            <div className="App">
-                <Nav />
-                <Route exact path='/' component={App} />
-                <Route path='/watchlist' component={WatchList} />
-                <Route path='/films/:id' component={Film} />
-            </div>
+            <App />
         </Router>
     </Provider>
 ), document.getElementById('root'));

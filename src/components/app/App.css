@@ -3,11 +3,6 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-.App-container {
-  width: initial !important;
-  padding: 15px;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

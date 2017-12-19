@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import FilmDetail from './film-detail/film-detail';
+import Film from '../film/film';
 import './film-list.css';
 
-const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist }) => {
+const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, match }) => {
     const films = playlist.map((film) => {
 
         let input = <input className="default-btn" type="button" value='See more'/>;
@@ -21,9 +22,14 @@ const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist }) => {
 
     return (
         <div>
-           <ul className="playlist">
-                {films}
-           </ul>
+           <Switch>
+                <Route exact path="/films" render={() => (
+                    <ul className="playlist">
+                        {films}
+                    </ul>
+                )} />
+                <Route path="/films/:id" component={Film} />
+           </Switch>
         </div>
     );
 };
