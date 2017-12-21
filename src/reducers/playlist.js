@@ -1,25 +1,37 @@
 import * as Types from '../actions/types';
 
-const playlist = (state = {}, action) => {
+const playlist = (state = { films: {}, selectedFilm: null }, action) => {
     switch (action.type) {
-        case Types.ADD_TO_PLAYLIST: 
+        case Types.ADD_TO_PLAYLIST: {
             const { film } = action;
-            const filmNotAddedYet = !Object.keys(state).includes(film.id.toString());
+            const filmNotAddedYet = !Object.keys(state.films).includes(film.id.toString());
 
             if (filmNotAddedYet) {
-                return { ...state, [film.id]: film };
+                const films = {...state.films, [film.id]: film};
+                return Object.assign({}, state, { films: films });
             } 
-        case Types.TOGGLE_FILM: 
+        }
+        case Types.TOGGLE_FILM: {
             const { id } = action;
 
-            if (!Object.keys(state).includes(id.toString())) {
+            if (!Object.keys(state.films).includes(id.toString())) {
                 return state;
             }
 
-            const newState = { ...state };
-            newState[id] = Object.assign({}, newState[id], { inWatchList: !newState[id].inWatchList});
+            const newFilms = { ...state.films };
+            newFilms[id] = Object.assign({}, newFilms[id], { inWatchList: !newFilms[id].inWatchList});
 
-            return Object.assign({}, state, newState);
+            return Object.assign({}, state, { films: newFilms });
+        }
+        case Types.SELECT_FILM: {
+            const { id } = action;
+            if (!Object.keys(state.films).includes(id.toString())) {
+                return state;
+            } 
+            const selectedFilm = state.films[id];
+            debugger;
+            return Object.assign({}, state, { selectedFilm : selectedFilm});
+        }
         default: 
             return state;
     }
@@ -27,4 +39,5 @@ const playlist = (state = {}, action) => {
 
 export default playlist;
 
-export const getPlaylist = (state) => Object.keys(state).map(key => state[key]);
+export const getPlaylist = (state) => Object.keys(state.films).map(key => state.films[key]);
+export const getFilm = (state) => state.selectedFilm;

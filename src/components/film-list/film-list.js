@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import FilmDetail from './film-detail/film-detail';
-import Film from '../film/film';
+import Film from '../../containers/film/film';
 import './film-list.css';
 
 const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, match }) => {
