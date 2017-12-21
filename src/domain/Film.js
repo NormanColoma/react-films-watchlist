@@ -1,3 +1,1 @@
-export default class Film {
-    constructor() {}
-};
+export default class Film {};

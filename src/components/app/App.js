@@ -3,7 +3,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Playlist from '../../containers/playlist/playlist';
 import WatchList from '../../containers/watchlist/watchlist';
 import Nav from '../nav/nav';
-import Film from '../film/film';
 
 import './App.css';
 

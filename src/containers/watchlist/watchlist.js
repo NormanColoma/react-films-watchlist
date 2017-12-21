@@ -10,8 +10,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     onRemoveFilm: film => {
-        dispatch(toggleFilm(film.id)),
-        dispatch(removeFromWatchlist(film.id))
+        dispatch(toggleFilm(film.id));
+        dispatch(removeFromWatchlist(film.id));
     }
 });
 

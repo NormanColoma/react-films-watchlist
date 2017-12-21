@@ -39,12 +39,12 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     addToWatchlist: film => {
-        dispatch(toggleFilm(film.id)),
-        dispatch(addToWatchlist(film))
+        dispatch(toggleFilm(film.id));
+        dispatch(addToWatchlist(film));
     },
     removeFromWatchlist: film => {
-        dispatch(toggleFilm(film.id)),
-        dispatch(removeFromWatchlist(film.id))
+        dispatch(toggleFilm(film.id));
+        dispatch(removeFromWatchlist(film.id));
     },
     fetchFilm: title => {
         dispatch(fetchFilm(title))

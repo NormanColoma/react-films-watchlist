@@ -17,7 +17,7 @@ const FilmDetail = ({ film, onFavFilm }) => {
                 </div>
                 
             </div>
-            <img src={film.poster} />
+            <img src={film.poster} alt={film.name} />
             <p className="synopsys">{film.synopsys}</p>
         </div>
     );

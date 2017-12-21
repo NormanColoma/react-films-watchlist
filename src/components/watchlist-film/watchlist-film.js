@@ -4,7 +4,7 @@ import './watchlist-film.css';
 const WatchlistFilm = ({ film, onRemoveFilm }) => {
     return (
         <div className="watchlist film container">
-            <img src={film.poster} />
+            <img src={film.poster} alt={film.name}/>
             <h3 className="title">{film.name}</h3>
             <a onClick={() => onRemoveFilm(film)}>
                 <i className="fas fa-heart"></i>

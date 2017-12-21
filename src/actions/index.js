@@ -1,5 +1,4 @@
 import fetch from 'cross-fetch';
-import Film from '../domain/Film';
 import FilmAdapter from '../adapters/FilmAdapter';
 import { TOGGLE_FILM, ADD_TO_PLAYLIST, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SELECT_FILM} from './types';
 

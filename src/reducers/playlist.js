@@ -10,6 +10,7 @@ const playlist = (state = { films: {}, selectedFilm: null }, action) => {
                 const films = {...state.films, [film.id]: film};
                 return Object.assign({}, state, { films: films });
             } 
+            return state;
         }
         case Types.TOGGLE_FILM: {
             const { id } = action;
