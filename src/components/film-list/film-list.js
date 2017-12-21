@@ -18,12 +18,12 @@ const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, match }) 
     return (
         <div>
            <Switch>
-                <Route exact path="/films" render={() => (
+                <Route exact path={`${match.url}`} render={() => (
                     <ul className="playlist">
                         {films}
                     </ul>
                 )} />
-                <Route path="/films/:id" component={Film} />
+                <Route path={`${match.url}/:id`}component={Film} />
            </Switch>
         </div>
     );
