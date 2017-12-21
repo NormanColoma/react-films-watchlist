@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 //Actions creators
-import { selectFilm } from '../../actions/index';
+import { selectFilm, fetchFilmById } from '../../actions/index';
 
 //Reducers and actions
 import { getFilm } from '../../reducers'
@@ -13,8 +13,12 @@ import FilmView from '../../components/film/film';
 
 class FilmComponent extends Component {
     componentDidMount() {
-       const { onSelectFilm, match } = this.props;
-       onSelectFilm(match.params.id);
+       const { selectFilm, fetchFilm, match, film } = this.props;
+       if(!film) {
+        fetchFilm(match.params.id);
+       } else {
+        selectFilm(match.params.id);
+       }
     }
 
     render() {
@@ -28,8 +32,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onSelectFilm: id => {
+    selectFilm: id => {
         dispatch(selectFilm(id))
+    },
+    fetchFilm: id => {
+        dispatch(fetchFilmById(id))
     }
 });
 

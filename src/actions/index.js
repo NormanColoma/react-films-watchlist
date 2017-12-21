@@ -39,3 +39,16 @@ export const fetchFilm = (title) => async (dispatch) => {
     // TODO: Dispatch action when error
   }
 }
+
+export const fetchFilmById = (id) => async (dispatch) => {
+  try {
+    const response = await fetch(`${API_URL}&i=${id}&plot=full`);
+    const json = await response.json();
+    const film = FilmAdapter.toDomain(json);
+    
+    dispatch(addToPlaylist(film));
+    dispatch(selectFilm(film.id));
+  } catch(err) {
+    // TODO: Dispatch action when error
+  }
+}
