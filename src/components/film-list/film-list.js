@@ -6,13 +6,8 @@ import './film-list.css';
 
 const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, match }) => {
     const films = playlist.map((film) => {
-
-        let input = <input className="default-btn" type="button" value='See more'/>;
-        let onFavFilm = onAddToWatchlist;
+        const onFavFilm = film.inWatchList ? onRemoveFromWatchlist : onAddToWatchlist;
         const linkToDetails = `/films/${film.id}`;
-        if(film.inWatchList) {
-            onFavFilm = onRemoveFromWatchlist;
-        }
 
         return <li key={film.id}>
             <FilmDetail film={film} onFavFilm={onFavFilm} />
