@@ -1,15 +1,15 @@
-import * as Actions from '../actions';
+import * as Types from '../actions/types';
 
 const playlist = (state = {}, action) => {
     switch (action.type) {
-        case Actions.ADD_TO_PLAYLIST: 
+        case Types.ADD_TO_PLAYLIST: 
             const { film } = action;
             const filmNotAddedYet = !Object.keys(state).includes(film.id.toString());
 
             if (filmNotAddedYet) {
                 return { ...state, [film.id]: film };
             } 
-        case Actions.TOGGLE_FILM: 
+        case Types.TOGGLE_FILM: 
             const { id } = action;
 
             if (!Object.keys(state).includes(id.toString())) {
