@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 //Actions creators
-import { selectFilm, fetchFilmById } from '../../actions/index';
+import { selectFilm, fetchFilmById, addToWatchlist, removeFromWatchlist, toggleFilm } from '../../actions/index';
 
 //Reducers and actions
 import { getFilm } from '../../reducers'
@@ -22,7 +22,20 @@ class FilmComponent extends Component {
     }
 
     render() {
-        return <FilmView {...this.props}/>;
+        const { film } = this.props;
+        return <FilmView
+            film={film}
+            onAddToWatchlist={film => this.handleAddFilmToWatchlist(film)}  
+            onRemoveFromWatchlist={film => this.handleRemoveFilmFromWatchlist(film)}  
+        />;
+    }
+
+    handleAddFilmToWatchlist(film) {
+        this.props.addToWatchlist(film);
+    }
+
+    handleRemoveFilmFromWatchlist(film) {
+        this.props.removeFromWatchlist(film);
     }
 }
 
@@ -37,7 +50,17 @@ const mapDispatchToProps = (dispatch) => ({
     },
     fetchFilm: id => {
         dispatch(fetchFilmById(id))
-    }
+    },
+    addToWatchlist: film => {
+        dispatch(toggleFilm(film.id));
+        dispatch(selectFilm(film.id));
+        dispatch(addToWatchlist(film));
+    },
+    removeFromWatchlist: film => {
+        dispatch(toggleFilm(film.id));
+        dispatch(selectFilm(film.id));
+        dispatch(removeFromWatchlist(film.id));
+    },
 });
 
 const Film = withRouter(connect(
