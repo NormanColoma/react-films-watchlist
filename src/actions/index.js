@@ -1,6 +1,6 @@
 import fetch from 'cross-fetch';
 import FilmAdapter from '../adapters/FilmAdapter';
-import { TOGGLE_FILM, ADD_TO_PLAYLIST, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SELECT_FILM} from './types';
+import { TOGGLE_FILM, ADD_TO_PLAYLIST, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SELECT_FILM, LOADING_FILM } from './types';
 
 const API_URL = 'http://www.omdbapi.com/?apiKey=55b399cc';
 
@@ -29,6 +29,10 @@ export const selectFilm = (id) => ({
   id
 });
 
+export const loadingFilm = () =>({
+  type: LOADING_FILM
+})
+
 export const fetchFilm = (title) => async (dispatch) => {
   try {
     const response = await fetch(`${API_URL}&t=${title}&plot=full`);
@@ -42,6 +46,7 @@ export const fetchFilm = (title) => async (dispatch) => {
 
 export const fetchFilmById = (id) => async (dispatch) => {
   try {
+    dispatch(loadingFilm());
     const response = await fetch(`${API_URL}&i=${id}&plot=full`);
     const json = await response.json();
     const film = FilmAdapter.toDomain(json);
@@ -49,6 +54,6 @@ export const fetchFilmById = (id) => async (dispatch) => {
     dispatch(addToPlaylist(film));
     dispatch(selectFilm(film.id));
   } catch(err) {
-    // TODO: Dispatch action when error
+    dispatch(loadingFilm());
   }
 }

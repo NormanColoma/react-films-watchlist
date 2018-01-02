@@ -1,9 +1,16 @@
 import React from 'react';
 import './film.css';
 
-const FilmView = ({ film, onAddToWatchlist, onRemoveFromWatchlist }) => {
+const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }) => {
+    if(loading) {
+        return <div>
+                <h1 className="not-found-message">Fetching film...</h1>
+            </div>;
+    }
     if(!film) {
-        return <div>The resource does not exist</div>;
+        return <div>
+                <h1 className="not-found-message">The resource does not exist</h1>
+            </div>;
     }
     let input = <input onClick={ () => onAddToWatchlist(film) } type="button" className="default-btn" value="Want to watch" />;
     if (film.inWatchList) {

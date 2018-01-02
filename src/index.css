@@ -57,3 +57,10 @@ a {
 .left {
   float: left;
 }
+
+.not-found-message {
+  margin-top: 75px;
+  font-size: 40px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 100;
+}

@@ -12,3 +12,4 @@ export default rootReduder;
 export const getPlaylist = (state) => fromPlaylist.getPlaylist(state.playlist);
 export const getFilm = (state) => fromPlaylist.getFilm(state.playlist);
 export const getWatchlist = (state) => fromWatchlist.getWatchlist(state.watchlist);
+export const filmIsLoading = (state) => fromPlaylist.isLoading(state.playlist);

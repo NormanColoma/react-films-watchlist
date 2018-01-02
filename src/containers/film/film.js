@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { selectFilm, fetchFilmById, addToWatchlist, removeFromWatchlist, toggleFilm } from '../../actions/index';
 
 //Reducers and actions
-import { getFilm } from '../../reducers'
+import { getFilm, filmIsLoading } from '../../reducers'
 
 import FilmView from '../../components/film/film';
 
@@ -22,9 +22,10 @@ class FilmComponent extends Component {
     }
 
     render() {
-        const { film } = this.props;
+        const { film, loading } = this.props;
         return <FilmView
             film={film}
+            loading={loading}
             onAddToWatchlist={film => this.handleAddFilmToWatchlist(film)}  
             onRemoveFromWatchlist={film => this.handleRemoveFilmFromWatchlist(film)}  
         />;
@@ -41,7 +42,8 @@ class FilmComponent extends Component {
 
 
 const mapStateToProps = (state) => ({
-    film: getFilm(state)
+    film: getFilm(state),
+    loading: filmIsLoading(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -60,7 +62,7 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(toggleFilm(film.id));
         dispatch(selectFilm(film.id));
         dispatch(removeFromWatchlist(film.id));
-    },
+    }
 });
 
 const Film = withRouter(connect(
