@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 //Actions creators
-import { selectFilm, fetchFilmById, addToWatchlist, removeFromWatchlist, toggleFilm } from '../../actions/index';
+import { selectFilm, addToWatchlist, removeFromWatchlist, toggleFilm } from '../../actions/index';
+import { fetchFilmById } from '../../actions/async/index';
 
 //Reducers and actions
 import { getFilm, filmIsLoading } from '../../reducers'

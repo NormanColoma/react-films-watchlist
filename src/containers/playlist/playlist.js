@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 //Actions creators
-import { toggleFilm, addToWatchlist, removeFromWatchlist, fetchFilm } from '../../actions/index';
+import { toggleFilm, addToWatchlist, removeFromWatchlist } from '../../actions/index';
+import { fetchFilm } from '../../actions/async/index';
 
 //Reducers and actions
 import { getPlaylist } from '../../reducers'
