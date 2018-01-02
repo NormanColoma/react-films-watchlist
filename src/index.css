@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 div {
@@ -19,6 +18,10 @@ ul li {
   float: left;
 }
 
+h1, h2 {
+  font-weight: 100;
+}
+
 a {
   text-decoration: none;
   color: #008CBA;
@@ -30,7 +33,7 @@ a {
 
 .default-title {
   font-family: 'Raleway', sans-serif;
-  font-size: 2.5em;
+  font-size: 2.3em;
   margin-bottom: 5px;
   float: left;
   margin-top: 0px;
@@ -61,6 +64,5 @@ a {
 .not-found-message {
   margin-top: 75px;
   font-size: 40px;
-  font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 100;
 }
