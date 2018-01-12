@@ -1,6 +1,6 @@
 import * as Types from '../actions/types';
 
-const playlist = (state = { films: {}, selectedFilm: null, loading: false }, action) => {
+const playlist = (state = { films: {}, selectedFilm: null, loading: false, filter: 'all' }, action) => {
     switch (action.type) {
         case Types.ADD_TO_PLAYLIST: {
             const { film } = action;
@@ -35,6 +35,11 @@ const playlist = (state = { films: {}, selectedFilm: null, loading: false }, act
         case Types.LOADING_FILM: {
             return Object.assign({}, state, { loading: !state.loading});
         }
+
+        case Types.FILTER_FILMS : {
+            const { filter } = action;
+            return Object.assign({}, state, { filter });
+        }
         default: 
             return state;
     }
@@ -43,5 +48,30 @@ const playlist = (state = { films: {}, selectedFilm: null, loading: false }, act
 export default playlist;
 
 export const getPlaylist = (state) => Object.keys(state.films).map(key => state.films[key]);
+export const getPlaylistByFilter = (state) => {
+    const films = getPlaylist(state);
+    if (state.filter === 'all') {
+        return films;
+    }
+    return films.filter(it => isSomeGenreInFilter(extractGenresFromFilm(it.genre.replace(/\s/g, "")), state.filter));
+}
 export const getFilm = (state) => state.selectedFilm;
 export const isLoading = (state) => state.loading;
+
+const extractGenresFromFilm = (genre) => {
+    let i = 0;
+    const genres = [];
+    let genreExtracted = ""; 
+    while(i <= genre.length) {
+        if (genre[i] === ',' || i === genre.length) {
+            genres.push(genreExtracted);
+            genreExtracted = "";
+        } else {
+            genreExtracted = genreExtracted.concat(genre[i]);
+        }
+        i++;
+    }
+    return genres;
+}
+
+const isSomeGenreInFilter = (genres, filter) => genres.some(it => it === filter);
