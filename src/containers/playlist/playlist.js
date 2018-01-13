@@ -6,7 +6,7 @@ import { toggleFilm, addToWatchlist, removeFromWatchlist, filterFilms } from '..
 import { fetchFilm } from '../../actions/async/index';
 
 //Reducers and actions
-import { getPlaylist, getPlaylistByFilter, getFilter, getFilm } from '../../reducers'
+import { getPlaylist, getFilter } from '../../reducers'
 
 //Components
 import FilmList from '../../components/film-list/film-list';
