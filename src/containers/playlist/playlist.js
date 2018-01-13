@@ -11,6 +11,10 @@ import { getPlaylist, getPlaylistByFilter, getFilter, getFilm } from '../../redu
 //Components
 import FilmList from '../../components/film-list/film-list';
 
+const ALL_GENRES = 'all';
+const COMMA = ',';
+const NONE = "";
+
 class PlaylistComponent extends Component {
     componentDidMount() {
         this.fetchFilms();
@@ -70,19 +74,19 @@ const mapDispatchToProps = (dispatch) => ({
 const getVisibleFilms = (films, paramsFilter, stateFilter) => {
     const filter = capitalizeFilter(paramsFilter || stateFilter);
     
-    return filter === 'all' ? films : films.filter(it => isSomeGenreInFilter(it, filter));
+    return filter === ALL_GENRES ? films : films.filter(it => isSomeGenreInFilter(it, filter));
 }
 
 
 const extractGenresFromFilm = (genre) => {
     let i = 0;
     const genres = [];
-    let genreExtracted = ""; 
+    let genreExtracted = NONE; 
 
     while(i <= genre.length) {
-        if (genre[i] === ',' || i === genre.length) {
+        if (genre[i] === COMMA || i === genre.length) {
             genres.push(genreExtracted);
-            genreExtracted = "";
+            genreExtracted = NONE;
         } else {
             genreExtracted = genreExtracted.concat(genre[i]);
         }
@@ -92,13 +96,13 @@ const extractGenresFromFilm = (genre) => {
 }
 
 const isSomeGenreInFilter = (film, filter) => { 
-    const genre = film.genre.replace(/\s/g, "");
+    const genre = film.genre.replace(/\s/g, NONE);
     const genres = extractGenresFromFilm(genre);
 
     return genres.some(it => it === filter)
 }
 
-const capitalizeFilter = (filter) => filter === 'all' ? filter : filter.charAt(0).toUpperCase() + filter.slice(1);
+const capitalizeFilter = (filter) => filter === ALL_GENRES ? filter : filter.charAt(0).toUpperCase() + filter.slice(1);
 
 const Playlist = withRouter(connect(
     mapStateToProps,
