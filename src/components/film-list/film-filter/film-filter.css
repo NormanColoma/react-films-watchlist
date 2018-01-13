@@ -1,0 +1,11 @@
+.select-filter {
+    border: 1px solid #d9d6d6;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 6px 14px;
+    box-shadow: none;
+    background: transparent;
+    outline: none;
+    height: 30px;
+}

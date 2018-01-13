@@ -57,6 +57,7 @@ export const getPlaylistByFilter = (state) => {
 }
 export const getFilm = (state) => state.selectedFilm;
 export const isLoading = (state) => state.loading;
+export const getFilter = (state) => state.filter;
 
 const extractGenresFromFilm = (genre) => {
     let i = 0;

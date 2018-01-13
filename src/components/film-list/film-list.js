@@ -2,9 +2,10 @@ import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import FilmDetail from './film-detail/film-detail';
 import Film from '../../containers/film/film';
+import FilmFilter from './film-filter/film-filter';
 import './film-list.css';
 
-const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterPlaylist, match }) => {
+const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterPlaylist, filter, match }) => {
     const films = playlist.map((film) => {
         const onFavFilm = film.inWatchList ? onRemoveFromWatchlist : onAddToWatchlist;
         const linkToDetails = `/films/${film.id}`;
@@ -16,7 +17,7 @@ const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterP
     });
 
     const handleOnFilter = (event) => {
-        onFilterPlaylist(event);
+        onFilterPlaylist(event.target.value);
     }
 
     return (
@@ -25,17 +26,7 @@ const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterP
                 <Route exact path={`${match.url}`} render={() => (
                     <div className="playlist-container">
                         <div className="filter-box">
-                            <select onChange={(event) => handleOnFilter(event.target.value)}>
-                                <option value="all">Filter by genre</option>
-                                <option value="all">All</option>
-                                <option value="Drama">Drama</option>
-                                <option value="Mystery">Mystery</option>
-                                <option value="Thriller">Thriller</option>
-                                <option value="Adventure">Adventure</option>
-                                <option value="Fantasy">Fantasy</option>
-                                <option value="Action">Action</option>
-                                <option value="Animation">Animation</option>
-                            </select>
+                            <FilmFilter onFilterSelected={handleOnFilter} selectedFilter={filter}/>
                         </div>
                         <ul className="playlist">
                             {films}

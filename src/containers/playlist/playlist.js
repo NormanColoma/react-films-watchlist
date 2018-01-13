@@ -6,7 +6,7 @@ import { toggleFilm, addToWatchlist, removeFromWatchlist, filterFilms } from '..
 import { fetchFilm } from '../../actions/async/index';
 
 //Reducers and actions
-import { getPlaylist, getPlaylistByFilter } from '../../reducers'
+import { getPlaylistByFilter, getFilter } from '../../reducers'
 
 //Components
 import FilmList from '../../components/film-list/film-list';
@@ -46,7 +46,8 @@ class PlaylistComponent extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    playlist: getPlaylistByFilter(state)
+    playlist: getPlaylistByFilter(state),
+    filter: getFilter(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
