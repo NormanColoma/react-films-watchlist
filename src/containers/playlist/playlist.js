@@ -69,10 +69,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 const getVisibleFilms = (films, paramsFilter, stateFilter) => {
     const filter = paramsFilter || stateFilter;
-    if (filter === 'all') {
-        return films;
-    }
-    return films.filter(it => isSomeGenreInFilter(extractGenresFromFilm(it.genre.replace(/\s/g, "")), filter));
+
+    return filter === 'all' ? films : films.filter(it => isSomeGenreInFilter(it, filter));
 }
 
 
@@ -80,6 +78,7 @@ const extractGenresFromFilm = (genre) => {
     let i = 0;
     const genres = [];
     let genreExtracted = ""; 
+    
     while(i <= genre.length) {
         if (genre[i] === ',' || i === genre.length) {
             genres.push(genreExtracted);
@@ -92,7 +91,12 @@ const extractGenresFromFilm = (genre) => {
     return genres;
 }
 
-const isSomeGenreInFilter = (genres, filter) => genres.some(it => it === filter);
+const isSomeGenreInFilter = (film, filter) => { 
+    const genre = film.genre.replace(/\s/g, "");
+    const genres = extractGenresFromFilm(genre);
+
+    return genres.some(it => it === filter)
+}
 
 const Playlist = withRouter(connect(
     mapStateToProps,
