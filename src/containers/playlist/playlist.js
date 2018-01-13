@@ -47,7 +47,7 @@ class PlaylistComponent extends Component {
 
 const mapStateToProps = (state, {match: { params : { filter: paramsFilter } }}) => ({
     playlist: getVisibleFilms(getPlaylist(state), paramsFilter, getFilter(state)),
-    filter: paramsFilter || getFilter(state)
+    filter: capitalizeFilter(paramsFilter || getFilter(state))
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -68,8 +68,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const getVisibleFilms = (films, paramsFilter, stateFilter) => {
-    const filter = paramsFilter || stateFilter;
-
+    const filter = capitalizeFilter(paramsFilter || stateFilter);
+    
     return filter === 'all' ? films : films.filter(it => isSomeGenreInFilter(it, filter));
 }
 
@@ -78,7 +78,7 @@ const extractGenresFromFilm = (genre) => {
     let i = 0;
     const genres = [];
     let genreExtracted = ""; 
-    
+
     while(i <= genre.length) {
         if (genre[i] === ',' || i === genre.length) {
             genres.push(genreExtracted);
@@ -97,6 +97,8 @@ const isSomeGenreInFilter = (film, filter) => {
 
     return genres.some(it => it === filter)
 }
+
+const capitalizeFilter = (filter) => filter === 'all' ? filter : filter.charAt(0).toUpperCase() + filter.slice(1);
 
 const Playlist = withRouter(connect(
     mapStateToProps,
