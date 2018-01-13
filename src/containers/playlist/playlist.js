@@ -45,9 +45,9 @@ class PlaylistComponent extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    playlist: getVisibleFilms(getPlaylist(state), getFilter(state)),
-    filter: getFilter(state)
+const mapStateToProps = (state, {match: { params : { filter: paramsFilter } }}) => ({
+    playlist: getVisibleFilms(getPlaylist(state), paramsFilter, getFilter(state)),
+    filter: paramsFilter || getFilter(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -67,8 +67,8 @@ const mapDispatchToProps = (dispatch) => ({
     }
 });
 
-const getVisibleFilms = (films, filter) => {
-    debugger;
+const getVisibleFilms = (films, paramsFilter, stateFilter) => {
+    const filter = paramsFilter || stateFilter;
     if (filter === 'all') {
         return films;
     }

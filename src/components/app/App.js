@@ -14,6 +14,7 @@ class App extends Component {
           <Nav />
           <Switch>
             <Redirect exact from="/" to="/films" />
+            <Route path='/films/genre/:filter' component={Playlist} />
             <Route path='/films' component={Playlist} />
             <Route path='/watchlist' component={WatchList} />
           </Switch>
