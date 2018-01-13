@@ -10,7 +10,6 @@ const rootReduder = combineReducers({
 export default rootReduder;
 
 export const getPlaylist = (state) => fromPlaylist.getPlaylist(state.playlist);
-export const getPlaylistByFilter = (state) => fromPlaylist.getPlaylistByFilter(state.playlist);
 export const getFilter = (state) => fromPlaylist.getFilter(state.playlist);
 export const getFilm = (state) => fromPlaylist.getFilm(state.playlist);
 export const getWatchlist = (state) => fromWatchlist.getWatchlist(state.watchlist);

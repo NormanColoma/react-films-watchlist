@@ -48,31 +48,6 @@ const playlist = (state = { films: {}, selectedFilm: null, loading: false, filte
 export default playlist;
 
 export const getPlaylist = (state) => Object.keys(state.films).map(key => state.films[key]);
-export const getPlaylistByFilter = (state) => {
-    const films = getPlaylist(state);
-    if (state.filter === 'all') {
-        return films;
-    }
-    return films.filter(it => isSomeGenreInFilter(extractGenresFromFilm(it.genre.replace(/\s/g, "")), state.filter));
-}
 export const getFilm = (state) => state.selectedFilm;
 export const isLoading = (state) => state.loading;
 export const getFilter = (state) => state.filter;
-
-const extractGenresFromFilm = (genre) => {
-    let i = 0;
-    const genres = [];
-    let genreExtracted = ""; 
-    while(i <= genre.length) {
-        if (genre[i] === ',' || i === genre.length) {
-            genres.push(genreExtracted);
-            genreExtracted = "";
-        } else {
-            genreExtracted = genreExtracted.concat(genre[i]);
-        }
-        i++;
-    }
-    return genres;
-}
-
-const isSomeGenreInFilter = (genres, filter) => genres.some(it => it === filter);
