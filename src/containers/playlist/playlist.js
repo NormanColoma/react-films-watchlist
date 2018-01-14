@@ -14,10 +14,17 @@ import FilmList from '../../components/film-list/film-list';
 const ALL_GENRES = 'all';
 const COMMA = ',';
 const NONE = "";
+const PLAYLIST_FILMS = [
+    'Shutter Island', 'Django Unchained', 'Coco', 'Star Wars: Episode I', 'Star Wars: Episode II',
+    'Star Wars: Episode III', 'The Lord of the Rings: The fellowship of the ring', 'The Lord of the Rings: The two towers',
+    'The Lord of the Rings: The return of the king', 'Inception', 'Captain America: The First Avenger',
+    'Captain America: Civil War', 'Iron Man', 'Dunkirk'
+];
 
 class PlaylistComponent extends Component {
     componentDidMount() {
-        this.fetchFilms();
+        const { fetchFilm } = this.props;
+        PLAYLIST_FILMS.forEach(film => fetchFilm(film));
     }
 
     render() {
@@ -28,24 +35,6 @@ class PlaylistComponent extends Component {
             onRemoveFromWatchlist={removeFromWatchlist}
             onFilterPlaylist={filterPlaylist}
          />
-    }
-
-    fetchFilms() {
-        const { fetchFilm } = this.props;
-        fetchFilm('Shutter Island');
-        fetchFilm('Django Unchained');
-        fetchFilm('Coco');
-        fetchFilm('Star Wars: Episode I');
-        fetchFilm('Star Wars: Episode II');
-        fetchFilm('Star Wars: Episode III');
-        fetchFilm('The Lord of the Rings: The fellowship of the ring');
-        fetchFilm('The Lord of the Rings: The two towers');
-        fetchFilm('The Lord of the Rings: The return of the king');
-        fetchFilm('Inception');
-        fetchFilm('Captain America: The First Avenger');
-        fetchFilm('Captain America: Civil War');
-        fetchFilm('Iron Man');
-        fetchFilm('Dunkirk');
     }
 }
 
