@@ -13,6 +13,9 @@ const Nav  = () => {
                 <li>
                     <NavLink to="/watchlist">Watchlist</NavLink>
                 </li>
+                <li>
+                    <NavLink to="/search">Search</NavLink>
+                </li>
             </ul>
         </header>
     );

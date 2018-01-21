@@ -1,0 +1,21 @@
+input[type=text] {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    border-bottom: 1px solid #cacaca;
+    width: 350px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+}
+  
+input[type=text]:focus {
+    border-color: #008CBA;
+}
+
+.search-containner {
+}
+
+.search-containner .results-title {
+    float:left;
+}
