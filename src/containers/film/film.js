@@ -8,18 +8,19 @@ import { selectFilm, addToWatchlist, removeFromWatchlist, toggleFilm } from '../
 import { fetchFilmById } from '../../actions/async/index';
 
 //Reducers and actions
-import { getFilm, filmIsLoading } from '../../reducers'
+import { getFilm, filmIsLoading, existsFilm } from '../../reducers'
 
 import FilmView from '../../components/film/film';
 
 class FilmComponent extends Component {
     componentDidMount() {
-       const { selectFilm, fetchFilm, match, film } = this.props;
-       if(!film) {
-        fetchFilm(match.params.id);
-       } else {
-        selectFilm(match.params.id);
-       }
+       const { selectFilm, fetchFilm, match, film, filmInStore } = this.props;
+
+        if (filmInStore) {
+            selectFilm(match.params.id);
+        } else {
+            fetchFilm(match.params.id);
+        }
     }
 
     render() {
@@ -42,9 +43,10 @@ class FilmComponent extends Component {
 }
 
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
     film: getFilm(state),
-    loading: filmIsLoading(state)
+    loading: filmIsLoading(state),
+    filmInStore: existsFilm(state, ownProps.match.params.id)
 });
 
 const mapDispatchToProps = (dispatch) => ({

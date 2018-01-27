@@ -1,7 +1,7 @@
 import React from 'react';
 import './searchlist-view.css';
 
-const SearchlistView = ({ onSearch, posters }) => {
+const SearchlistView = ({ onSearch, onFilmClicked, posters }) => {
     const handleOnChange = (event) => {
         const { keyCode } = event;
         const term = event.target.value;
@@ -11,8 +11,12 @@ const SearchlistView = ({ onSearch, posters }) => {
         }
     }
 
+    const handleOnClick = (poster) => {
+        onFilmClicked(poster.id);
+    }
+
     const posterFilms = posters.map(it => {
-        return <li key={it.id}>
+        return <li key={it.id} onClick={() => handleOnClick(it)}>
                     <div className="search-rsult-container">
                         <div className="search-result-inner-container">
                             <h5>{it.name}</h5>

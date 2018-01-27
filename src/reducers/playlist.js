@@ -51,3 +51,9 @@ export const getPlaylist = (state) => Object.keys(state.films).map(key => state.
 export const getFilm = (state) => state.selectedFilm;
 export const isLoading = (state) => state.loading;
 export const getFilter = (state) => state.filter;
+export const existsFilm = (state, id) => {
+    if (state.films) {
+        return state.films[id] ? true : false;
+    }
+    return false;
+}
