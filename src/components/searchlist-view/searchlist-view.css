@@ -1,0 +1,114 @@
+input[type=text] {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    border-bottom: 1px solid #cacaca;
+    width: 350px;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+}
+  
+input[type=text]:focus {
+    border-color: #008CBA;
+}
+
+.search-containner {
+}
+
+.search-containner .results-title {
+    float: left;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.search-containner .results-title strong {
+    color: #008CBA;
+}
+
+.search-result-list {
+    margin: 0 auto;
+    width: 1250px;
+    margin-top: 15px;
+    float: none;
+}
+
+.search-result-list li {
+    margin-right: 70px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.search-result-list li:last-child {
+    margin-right: 0px;
+}
+
+.search-result-list li img {
+    width: 180px;
+    height: 225px;
+    border-radius: 2px;
+}
+
+.search-rsult-container {
+    width: 300px;
+    height: 360px;
+    box-shadow: 0 8px 30px rgba(0,29,54,0.1);
+    border-radius: 5px;
+    box-sizing: border-box;
+    -webkit-transition: .2s all ease;
+    transition: .2s all ease;
+    position: relative;
+}
+
+.search-rsult-container:hover {
+    transform: scale(1.075);
+    -ms-transform: scale(1.075);
+    -webkit-transform: scale(1.075);
+}
+
+.search-result-inner-container {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.search-result-inner-container h5 {
+    width: 235px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.search-result-title {
+}
+.search-result-title p {
+    font-size: 11px;
+    margin-top: 0px;
+}
+
+.search-result-actions-container {
+    background: #f6f9ff;
+    height: 50px;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.search-result-actions-container p {
+    font-size: 11px;
+    float: right;
+    padding: 15px;
+    margin: 0;
+}
+
+.search-result-actions-container svg {
+    color: #98c7d7;
+    padding: 15px;
+    float: left;
+}
+
+.spinner-container svg {
+    float: left;
+    animation: fa-spin 2s infinite linear;
+}

@@ -1,4 +1,4 @@
-import { TOGGLE_FILM, ADD_TO_PLAYLIST, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SELECT_FILM, LOADING_FILM, FILTER_FILMS } from './types';
+import { TOGGLE_FILM, ADD_TO_PLAYLIST, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SELECT_FILM, LOADING_FILM, FILTER_FILMS, ADD_TO_SEARCHLIST } from './types';
 
 export const toggleFilm = (id) => ({
   type: TOGGLE_FILM,
@@ -32,4 +32,9 @@ export const loadingFilm = () =>({
 export const filterFilms = (filter) => ({
   type: FILTER_FILMS,
   filter
-})
+});
+
+export const addToSearchlist = (posters) => ({
+  type: ADD_TO_SEARCHLIST,
+  posters
+});
