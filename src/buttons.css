@@ -1,15 +1,20 @@
 .default-btn {
-    background-color: #008CBA;
+    background-color: #4CAF50;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
     color: white;
     padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     font-size: 14px;
     outline: none;
     cursor: pointer;
+    float: right;
+    margin: 15px;
+    width: 100px;
+    -webkit-box-shadow: 0 3px 6px rgba(0,29,54,0.12);
+    box-shadow: 0 3px 6px rgba(0,29,54,0.12);
+    -webkit-transition: .2s ease all;
+    transition: .2s ease all;
+    text-transform: uppercase;
   }
   
   .success-btn {
@@ -27,11 +32,7 @@
   } 
   
   .default-btn:hover {
-    background-color: #ffffff;
-    border-color: #008CBA;
-    color: #008CBA;
-    border-style: solid;
-    border-width: 1px;
+    transform:translateY(-2px);
   }
   .success-btn:hover {
     background-color: #ffffff;
