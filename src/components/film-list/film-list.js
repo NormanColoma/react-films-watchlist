@@ -15,7 +15,7 @@ const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterP
     });
 
     const handleOnFilter = (event) => {
-        onFilterPlaylist(event.target.value);
+        onFilterPlaylist(event.target.id);
     }
 
     return (

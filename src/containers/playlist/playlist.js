@@ -11,7 +11,7 @@ import { getPlaylist, getFilter } from '../../reducers'
 //Components
 import FilmList from '../../components/film-list/film-list';
 
-const ALL_GENRES = 'all';
+const ALL_GENRES = 'All Genres';
 const COMMA = ',';
 const NONE = "";
 const PLAYLIST_FILMS = [

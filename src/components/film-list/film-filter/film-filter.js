@@ -1,17 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './film-filter.css';
 
-const FilmFilter =({onFilterSelected, selectedFilter}) => {
-    const genres = ['Drama', 'Mystery', 'Thriller', 'Adventure', 'Fantasy', 'Action', 'Animation'];
-    const filterOptions = genres.map(genre => <option value={genre} key={genre}>{genre}</option>);
+class FilmFilter extends Component {
 
-    return (
-        <select onChange={onFilterSelected} value={selectedFilter} className="select-filter">
-            <option value="all">Filter by genre</option>
-            <option value="all">All</option>
-            {filterOptions}
-        </select>
-    );
-};
+    node = null; 
+
+    constructor() {
+        super();
+        this.state = { showFilter: false };
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener('click', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleClickOutside);
+    }
+
+    render() {
+        const { onFilterSelected, selectedFilter } = this.props;
+        const genres = ['All Genres', 'Drama', 'Mystery', 'Thriller', 'Adventure', 'Fantasy', 'Action', 'Animation'];
+
+        const filterOptions = genres.map(genre => <li key={genre}><a id={genre} onClick={onFilterSelected}>{genre}</a></li>);
+        const selectFilterClass = this.state.showFilter ? 'select-filter show' : 'select-filter';
+        
+        return ( 
+            <div>
+                <button className="btn-filter" 
+                    onClick={() => this.handleOnClick()}
+                    ref={(node) => { this.node = node; }} >
+                    <i className="fas fa-filter"></i> <span>{selectedFilter}</span>
+                </button>
+                <ul className={selectFilterClass}>
+                    {filterOptions}
+                </ul>
+            </div>
+        );
+    }
+
+    handleOnClick() {
+        this.setState(prevState => ({ 
+            showFilter: !prevState.showFilter 
+        }));
+    }
+
+    handleClickOutside(event) {
+        if (this.node.contains(event.target)) {
+            return;
+        } 
+        this.handleOnClick();
+    }
+}
 
 export default FilmFilter;
