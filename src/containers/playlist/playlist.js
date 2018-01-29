@@ -11,7 +11,8 @@ import { getPlaylist, getFilter } from '../../reducers'
 //Components
 import FilmList from '../../components/film-list/film-list';
 
-const ALL_GENRES = 'All Genres';
+const ALL_GENRES = 'all';
+const ALL_GENRES_LITERAL = 'All Genres';
 const COMMA = ',';
 const NONE = "";
 const PLAYLIST_FILMS = [
@@ -28,13 +29,21 @@ class PlaylistComponent extends Component {
     }
 
     render() {
-        const { addToWatchlist, removeFromWatchlist, filterPlaylist, ...rest } = this.props;
+        const { addToWatchlist, removeFromWatchlist, ...rest } = this.props;
         return <FilmList 
             {...rest}
             onAddToWatchlist={addToWatchlist}
             onRemoveFromWatchlist={removeFromWatchlist}
-            onFilterPlaylist={filterPlaylist}
+            onFilterPlaylist={genre => this.navigateToDetails(genre)}
          />
+    }
+
+    navigateToDetails(genreSelected) {
+        const { history } = this.props;
+        const genre = genreSelected === ALL_GENRES_LITERAL ? ALL_GENRES : genreSelected;
+        const linkToDetails = `/films/genre/${genre.toLowerCase()}`;
+        
+        history.push(linkToDetails);
     }
 }
 
@@ -44,9 +53,6 @@ const mapStateToProps = (state, {match: { params : { filter: paramsFilter } }}) 
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    filterPlaylist: filter => {
-        dispatch(filterFilms(filter));
-    },
     addToWatchlist: film => {
         dispatch(toggleFilm(film.id));
         dispatch(addToWatchlist(film));
@@ -61,9 +67,9 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const getVisibleFilms = (films, paramsFilter, stateFilter) => {
-    const filter = capitalizeFilter(paramsFilter || stateFilter);
+    const filter = paramsFilter || stateFilter;
     
-    return filter === ALL_GENRES ? films : films.filter(it => isSomeGenreInFilter(it, filter));
+    return (filter === ALL_GENRES || filter === ALL_GENRES_LITERAL) ? films : films.filter(it => isSomeGenreInFilter(it, filter));
 }
 
 
@@ -86,12 +92,12 @@ const extractGenresFromFilm = (genre) => {
 
 const isSomeGenreInFilter = (film, filter) => { 
     const genre = film.genre.replace(/\s/g, NONE);
-    const genres = extractGenresFromFilm(genre);
+    const genres = extractGenresFromFilm(genre.toLowerCase());
 
     return genres.some(it => it === filter)
 }
 
-const capitalizeFilter = (filter) => filter === ALL_GENRES ? filter : filter.charAt(0).toUpperCase() + filter.slice(1);
+const capitalizeFilter = (filter) => filter === ALL_GENRES ? ALL_GENRES_LITERAL : filter.charAt(0).toUpperCase() + filter.slice(1);
 
 const Playlist = withRouter(connect(
     mapStateToProps,

@@ -9,6 +9,7 @@
     position: absolute;
     right: 83px;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .btn-filter span {
@@ -47,11 +48,16 @@
 
 .select-filter li a {
     display: block;
-    padding: 12px 16px 10px 25px;
+    padding: 12px 16px 10px 40px;
     font-size: 14px;
     color: #545e6f;
     -webkit-font-smoothing: antialiased;
     cursor: pointer;
+}
+
+.select-filter li a.selected {
+    background: #f6f9ff;
+    font-weight: 600;
 }
 
 .select-filter li a:hover {

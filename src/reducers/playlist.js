@@ -1,6 +1,8 @@
 import * as Types from '../actions/types';
 
-const playlist = (state = { films: {}, selectedFilm: null, loading: false, filter: 'All Genres' }, action) => {
+const ALL_GENRES = 'All Genres';
+
+const playlist = (state = { films: {}, selectedFilm: null, loading: false, filter: 'all' }, action) => {
     switch (action.type) {
         case Types.ADD_TO_PLAYLIST: {
             const { film } = action;
@@ -50,7 +52,7 @@ export default playlist;
 export const getPlaylist = (state) => Object.keys(state.films).map(key => state.films[key]);
 export const getFilm = (state) => state.selectedFilm;
 export const isLoading = (state) => state.loading;
-export const getFilter = (state) => state.filter;
+export const getFilter = (state) => state.filter === 'all' ? ALL_GENRES : state.filter;
 export const existsFilm = (state, id) => {
     if (state.films) {
         return state.films[id] ? true : false;

@@ -23,7 +23,14 @@ class FilmFilter extends Component {
         const { onFilterSelected, selectedFilter } = this.props;
         const genres = ['All Genres', 'Drama', 'Mystery', 'Thriller', 'Adventure', 'Fantasy', 'Action', 'Animation'];
 
-        const filterOptions = genres.map(genre => <li key={genre}><a id={genre} onClick={onFilterSelected}>{genre}</a></li>);
+        const filterOptions = genres.map((genre) => {
+            if (genre === selectedFilter) {
+                return <li key={genre}>
+                    <a id={genre} onClick={onFilterSelected} className="selected">{genre}</a>
+                </li>;
+            }
+            return <li key={genre}><a id={genre} onClick={onFilterSelected}>{genre}</a></li>;
+        });
         const selectFilterClass = this.state.showFilter ? 'select-filter show' : 'select-filter';
         
         return ( 
@@ -50,7 +57,7 @@ class FilmFilter extends Component {
         if (this.node.contains(event.target)) {
             return;
         } 
-        this.handleOnClick();
+        this.setState({ showFilter: false });
     }
 }
 
