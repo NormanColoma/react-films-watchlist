@@ -35,10 +35,12 @@
     right: 83px;
     top: 170px;
     opacity: 0;
+    display: none;
 }
 
 .select-filter.show{
     opacity: 1;
+    display: block;
 }
 
 .select-filter li {
@@ -55,9 +57,20 @@
     cursor: pointer;
 }
 
+.select-filter li a svg {
+    display: none;
+}
+
 .select-filter li a.selected {
     background: #f6f9ff;
     font-weight: 600;
+}
+
+.select-filter li a.selected svg {
+    display: inline;
+    margin-left: -25px;
+    margin-right: 10px;
+    color: #4CAF50;
 }
 
 .select-filter li a:hover {
