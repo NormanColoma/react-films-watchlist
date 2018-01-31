@@ -6,7 +6,7 @@ class FilmFilter extends Component {
 
     constructor() {
         super();
-        this.state = { showFilter: false };
+        this.state = { showFilter: false, chevronDown: false };
         this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
@@ -28,19 +28,24 @@ class FilmFilter extends Component {
                 <a id={genre} 
                    onClick={onFilterSelected} 
                    className={selectedClass}>
-                    <i class="fas fa-check"></i>
+                    <i className="fas fa-check"></i>
                     {genre}
                 </a>
             </li>;
         });
-        const selectFilterClass = this.state.showFilter ? 'select-filter show' : 'select-filter';
-        
+
+        const { showFilter, chevronDown } = this.state;
+        const selectFilterClass = showFilter ? 'select-filter show' : 'select-filter';
+        const chevronClass = chevronDown ? 'fas fa-chevron-down last-down' : 'fas fa-chevron-down last-up';
+
         return ( 
             <div>
                 <button className="btn-filter" 
                     onClick={() => this.handleOnClick()}
                     ref={(node) => { this.node = node; }} >
-                    <i className="fas fa-filter"></i> <span>{selectedFilter}</span>
+                    <i className="fas fa-filter"></i> 
+                    <span>{selectedFilter}</span>
+                    <i className={chevronDown ? 'fas fa-chevron-down last-down' : 'fas fa-chevron-down last-up'}></i>
                 </button>
                 <ul className={selectFilterClass}>
                     {filterOptions}
@@ -51,7 +56,8 @@ class FilmFilter extends Component {
 
     handleOnClick() {
         this.setState(prevState => ({ 
-            showFilter: !prevState.showFilter 
+            showFilter: !prevState.showFilter,
+            chevronDown: !prevState.chevronDown 
         }));
     }
 

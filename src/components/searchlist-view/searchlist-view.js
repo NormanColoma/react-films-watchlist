@@ -20,7 +20,7 @@ const SearchlistView = ({ onSearch, onFilmClicked, posters }) => {
                     <div className="search-rsult-container">
                         <div className="search-result-inner-container">
                             <h5>{it.name}</h5>
-                            <img src={it.poster} />
+                            <img src={it.poster} alt="film-poster"/>
                             <div className="search-result-title">
                                 
                             </div>

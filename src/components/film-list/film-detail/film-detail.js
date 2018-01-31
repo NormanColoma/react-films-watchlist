@@ -10,7 +10,10 @@ const FilmDetail = ({ film, onFavFilm }) => {
         <div className="film container">
             <img src={film.poster} alt={film.name} />
             <div className="film titleContainer">
-                <h2 className="film title">{film.name}, {film.releasedDate}</h2>
+                <div className="film titleReleaseContainer">
+                    <h2 className="film title">{film.name}</h2>
+                    <span><i className="fas fa-film"></i> {film.releasedDate}</span>
+                </div>
                 <div className={favClass} onClick={() => onFavFilm(film)}>
                     <i className="fas fa-heart"></i>
                 </div>

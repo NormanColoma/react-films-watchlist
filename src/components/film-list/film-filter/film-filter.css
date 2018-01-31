@@ -22,6 +22,17 @@
     float: left;
     padding: 10px;
     color: #008CBA;
+    -webkit-transition: .2s ease all;
+    transition: .2s ease all;
+}
+
+.btn-filter svg.last-up {
+    float: right;
+}
+
+.btn-filter svg.last-down {
+    float: right;
+    transform: rotate(-180deg);
 }
 
 .select-filter {
@@ -35,12 +46,16 @@
     right: 83px;
     top: 170px;
     opacity: 0;
-    display: none;
+    -webkit-transition: .2s ease all;
+    transition: .2s ease all;
+    transform: translateY(-10px) scale(0.96);
+    visibility: hidden;
 }
 
 .select-filter.show{
     opacity: 1;
-    display: block;
+    transform: translateY(0) scale(1);
+    visibility: visible;
 }
 
 .select-filter li {

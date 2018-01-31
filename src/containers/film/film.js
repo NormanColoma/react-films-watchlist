@@ -14,7 +14,7 @@ import FilmView from '../../components/film/film';
 
 class FilmComponent extends Component {
     componentDidMount() {
-       const { selectFilm, fetchFilm, match, film, filmInStore } = this.props;
+       const { selectFilm, fetchFilm, match, filmInStore } = this.props;
 
         if (filmInStore) {
             selectFilm(match.params.id);

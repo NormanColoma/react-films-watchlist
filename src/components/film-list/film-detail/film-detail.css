@@ -1,12 +1,10 @@
 .film.title {
     font-family: 'Raleway', sans-serif;
     font-size: 1.75em;
-    margin: 20px;
-    margin-bottom: 5px;
+    margin: 15px 0 5px 0;
     float: left;
-    color: #545e6f;
-    -webkit-font-smoothing: antialiased;
     font-weight: 600;
+    width: 100%;
 }
   
   .film.extra-details-container {
@@ -94,6 +92,26 @@
     width: 80%;
   }
 
+  .film.titleReleaseContainer {
+    width: 70%;
+    margin: 0 0 0 20px;
+    text-align: left;
+    color: #545e6f;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .film.titleReleaseContainer span {
+    float:left;
+    font-size: 14px;
+  }
+
+  .film.titleReleaseContainer span svg {
+    color: #a2d5b6;
+    font-size: 18px;
+    float: left;
+    margin: 1px 5px 0 0;
+  }
+
   .film.rating, .film.fav {
     width: initial;
     margin-top: 20px;
@@ -110,14 +128,18 @@
 
   .film.rating svg:hover {
     color: #ce2262;
+    transform: scale(1.1);
   }
 
   .film.fav svg {
     font-size: 1.5em;
     color: #ce2262;
     cursor: pointer;
+    -webkit-transition: .2s ease all;
+    transition: .2s ease all;
   }
 
   .film.fav svg:hover {
     color:#98c7d7;
+    transform: scale(0.9);
   }
