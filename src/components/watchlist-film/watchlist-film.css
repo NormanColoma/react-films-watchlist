@@ -1,3 +1,15 @@
-.film.container {
+.watchlist .film.container {
     margin-bottom: 50px;
+}
+
+.watchlist .film.titleReleaseContainer span svg {
+    color: #a2d5b6;
+}
+
+.watchlist .film.extra-details-left-container svg {
+    color: #98c7d7;
+}
+
+.watchlist .film.extra-details-left-container .genre {
+    color: #98c7d7 !important;
 }

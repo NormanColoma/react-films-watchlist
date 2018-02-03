@@ -8,7 +8,7 @@ const WatchlistFilm = ({ film, onRemoveFilm }) => {
             <div className="film titleContainer">
                 <div className="film titleReleaseContainer">
                     <h2 className="film title">{film.name}</h2>
-                    <span><i className="fas fa-film"></i> {film.duration}</span>
+                    <span><i className="fas fa-clock"></i>{film.duration}</span>
                 </div>
                 <div className="film fav" onClick={() => onRemoveFilm(film)}>
                     <i className="fas fa-heart"></i>
