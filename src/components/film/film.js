@@ -12,9 +12,9 @@ const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }) =>
                 <h1 className="not-found-message">The resource does not exist</h1>
             </div>;
     }
-    let input = <input onClick={ () => onAddToWatchlist(film) } type="button" className="default-btn" value="Want to watch" />;
+    let input = <input onClick={ () => onAddToWatchlist(film) } type="button" className="default-rounded-btn" value="Want to watch" />;
     if (film.inWatchList) {
-        input = <input onClick={() => onRemoveFromWatchlist(film)} className="success-btn" type="button" value='Watching'/>;
+        input = <input onClick={() => onRemoveFromWatchlist(film)} className="default-rounded-success-btn" type="button" value='Watching'/>;
     }
     return (
         <div className="default-conatiner">

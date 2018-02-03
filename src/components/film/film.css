@@ -26,8 +26,12 @@
 }
 
 .film.block.actions {
-    width: 100%;
+    width: 70%;
     margin-top: 30px;
+}
+
+.film.block.actions input[type="button"] {
+    width: 200px;
 }
 
 .gold-color {

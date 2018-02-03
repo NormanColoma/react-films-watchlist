@@ -16,24 +16,49 @@
     transition: .2s ease all;
     text-transform: uppercase;
   }
-  
-  .success-btn {
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 25px;
-    color: white;
-    padding: 10px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    outline: none;
-    cursor: pointer;
-  } 
-  
+
   .default-btn:hover {
     transform:translateY(-2px);
   }
+
+  .default-rounded-btn {
+    background-color: #008CBA;
+    border: none;
+    border-radius: 50px;
+    color: #ffffff;
+    height: 45px;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: .2s ease all;
+    -o-transition: .2s ease all;
+    transition: .2s ease all;
+  }
+
+  .default-rounded-btn:hover {
+    background-color: #0f7293;
+  }
+
+  .default-rounded-success-btn {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 50px;
+    color: #ffffff;
+    height: 45px;
+    display: inline-block;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: .2s ease all;
+    -o-transition: .2s ease all;
+    transition: .2s ease all;
+  }
+
+  .default-rounded-success-btn:hover {
+    background-color: #3e8b41;
+  }
+
   .success-btn:hover {
     background-color: #ffffff;
     border-color: #4CAF50;
