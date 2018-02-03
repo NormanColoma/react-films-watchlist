@@ -20,5 +20,3 @@ const watchlist = (state = {}, action) => {
 };
 
 export default watchlist;
-
-export const getWatchlist = (state) => Object.keys(state).map(key => state[key]);

@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
-import SearchlistView from '../../components/searchlist-view/searchlist-view';
+
+//Actions
+import { fetchFilmById } from '../../actions/async/index';
 import { fetchFilmsByTerm } from '../../actions/async/index';
 
-//Reducers and actions
-import { getSearchlist } from '../../reducers'
-import { fetchFilmById } from '../../actions/async/index';
+//Selectors 
+import { getSearchlist } from '../../selectors';
+
+//Components
+import SearchlistView from '../../components/searchlist-view/searchlist-view';
 
 class SearchlistComponent extends Component {
     render () {

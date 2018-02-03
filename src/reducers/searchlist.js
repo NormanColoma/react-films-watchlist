@@ -18,5 +18,3 @@ const searchlist = (state = { posters: {}, loading: false }, action) => {
 };
 
 export default searchlist;
-
-export const getSearchlist = (state) => Object.keys(state.posters).map(key => state.posters[key]); 

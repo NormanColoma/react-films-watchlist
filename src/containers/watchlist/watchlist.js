@@ -1,6 +1,12 @@
 import { connect } from 'react-redux';
+
+//Actions
 import { toggleFilm, removeFromWatchlist} from '../../actions/index';
-import { getWatchlist } from '../../reducers';
+
+//Selectors 
+import { getWatchlist } from '../../selectors';
+
+//Components
 import WatchListView from '../../components/watchlist-view/watchlist-view';
 
 

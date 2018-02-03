@@ -1,0 +1,1 @@
+export const getWatchlist = (state) => Object.keys(state).map(key => state[key]);

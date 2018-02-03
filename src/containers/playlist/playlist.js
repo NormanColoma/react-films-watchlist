@@ -5,8 +5,8 @@ import { withRouter } from 'react-router-dom';
 import { toggleFilm, addToWatchlist, removeFromWatchlist } from '../../actions/index';
 import { fetchFilm } from '../../actions/async/index';
 
-//Reducers and actions
-import { getPlaylist, getFilter } from '../../reducers'
+//Selectors
+import { getPlaylist, getFilter } from '../../selectors';
 
 //Components
 import FilmList from '../../components/film-list/film-list';

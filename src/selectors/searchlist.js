@@ -1,0 +1,1 @@
+export const getSearchlist = (state) => Object.keys(state.posters).map(key => state.posters[key]); 

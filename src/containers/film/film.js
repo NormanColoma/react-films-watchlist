@@ -8,7 +8,7 @@ import { selectFilm, addToWatchlist, removeFromWatchlist, toggleFilm } from '../
 import { fetchFilmById } from '../../actions/async/index';
 
 //Reducers and actions
-import { getFilm, filmIsLoading, existsFilm } from '../../reducers'
+import { getFilm, filmIsLoading, existsFilm } from '../../selectors'
 
 import FilmView from '../../components/film/film';
 

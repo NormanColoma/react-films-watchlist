@@ -7,13 +7,13 @@ input[type=text] {
     width: 350px;
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
+    -webkit-transition: .2s ease all;
+    -o-transition: .2s ease all;
+    transition: .2s ease all;
 }
   
 input[type=text]:focus {
     border-color: #008CBA;
-}
-
-.search-containner {
 }
 
 .search-containner .results-title {
@@ -77,8 +77,6 @@ input[type=text]:focus {
     margin-bottom: 10px;
 }
 
-.search-result-title {
-}
 .search-result-title p {
     font-size: 11px;
     margin-top: 0px;
