@@ -6,7 +6,7 @@ import { toggleFilm, addToWatchlist, removeFromWatchlist } from '../../actions/i
 import { fetchFilm } from '../../actions/async/index';
 
 //Selectors
-import { getPlaylist, getFilter } from '../../selectors';
+import { getPlaylist, getFilter, getVisibleFilms } from '../../selectors';
 
 //Components
 import FilmList from '../../components/film-list/film-list';
@@ -48,7 +48,7 @@ class PlaylistComponent extends Component {
 }
 
 const mapStateToProps = (state, {match: { params : { filter: paramsFilter } }}) => ({
-    playlist: getVisibleFilms(getPlaylist(state), paramsFilter, getFilter(state)),
+    playlist: getVisibleFilms(state, paramsFilter),
     filter: capitalizeFilter(paramsFilter || getFilter(state))
 });
 
@@ -65,37 +65,6 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(fetchFilm(title))
     }
 });
-
-const getVisibleFilms = (films, paramsFilter, stateFilter) => {
-    const filter = paramsFilter || stateFilter;
-    
-    return (filter === ALL_GENRES || filter === ALL_GENRES_LITERAL) ? films : films.filter(it => isSomeGenreInFilter(it, filter));
-}
-
-
-const extractGenresFromFilm = (genre) => {
-    let i = 0;
-    const genres = [];
-    let genreExtracted = NONE; 
-
-    while(i <= genre.length) {
-        if (genre[i] === COMMA || i === genre.length) {
-            genres.push(genreExtracted);
-            genreExtracted = NONE;
-        } else {
-            genreExtracted = genreExtracted.concat(genre[i]);
-        }
-        i++;
-    }
-    return genres;
-}
-
-const isSomeGenreInFilter = (film, filter) => { 
-    const genre = film.genre.replace(/\s/g, NONE);
-    const genres = extractGenresFromFilm(genre.toLowerCase());
-
-    return genres.some(it => it === filter)
-}
 
 const capitalizeFilter = (filter) => filter === ALL_GENRES ? ALL_GENRES_LITERAL : filter.charAt(0).toUpperCase() + filter.slice(1);
 
