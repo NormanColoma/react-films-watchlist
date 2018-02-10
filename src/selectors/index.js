@@ -1,4 +1,4 @@
-import * as playlistSelectors from './playlist';
+import * as playlistSelectors from './playlist/playlist';
 import * as watchlistSelectors from './watchlist';
 import * as searchlistSelectors from './searchlist';
 
