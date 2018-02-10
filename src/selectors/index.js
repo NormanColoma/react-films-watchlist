@@ -4,7 +4,7 @@ import * as searchlistSelectors from './searchlist';
 
 //Playlist
 export const getPlaylist = (state) => playlistSelectors.getPlaylist(state.playlist);
-export const getFilter = (state, filter) => playlistSelectors.getFilter(state.playlist);
+export const getSelectedFilter = (state, filter) => playlistSelectors.getSelectedFilter(state.playlist);
 export const getFilm = (state) => playlistSelectors.getFilm(state.playlist);
 export const filmIsLoading = (state) => playlistSelectors.isLoading(state.playlist);
 export const existsFilm = (state, filmId) => playlistSelectors.existsFilm(state.playlist, filmId);

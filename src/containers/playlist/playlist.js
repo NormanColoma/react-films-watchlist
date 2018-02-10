@@ -6,15 +6,13 @@ import { toggleFilm, addToWatchlist, removeFromWatchlist } from '../../actions/i
 import { fetchFilm } from '../../actions/async/index';
 
 //Selectors
-import { getPlaylist, getFilter, getVisibleFilms } from '../../selectors';
+import { getSelectedFilter, getVisibleFilms } from '../../selectors';
 
 //Components
 import FilmList from '../../components/film-list/film-list';
 
 const ALL_GENRES = 'all';
 const ALL_GENRES_LITERAL = 'All Genres';
-const COMMA = ',';
-const NONE = "";
 const PLAYLIST_FILMS = [
     'Shutter Island', 'Django Unchained', 'Coco', 'Star Wars: Episode I', 'Star Wars: Episode II',
     'Star Wars: Episode III', 'The Lord of the Rings: The fellowship of the ring', 'The Lord of the Rings: The two towers',
@@ -49,7 +47,7 @@ class PlaylistComponent extends Component {
 
 const mapStateToProps = (state, {match: { params : { filter: paramsFilter } }}) => ({
     playlist: getVisibleFilms(state, paramsFilter),
-    filter: capitalizeFilter(paramsFilter || getFilter(state))
+    filter: capitalizeFilter(paramsFilter || getSelectedFilter(state))
 });
 
 const mapDispatchToProps = (dispatch) => ({

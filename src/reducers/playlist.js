@@ -14,18 +14,20 @@ const playlist = (state = { films: {}, selectedFilm: null, loading: false, filte
         }
         case Types.TOGGLE_FILM: {
             const { id } = action;
+
             if (!Object.keys(state.films).includes(id.toString())) {
                 return state;
             }
 
             const newFilms = { ...state.films };
-            newFilms[id] = Object.assign({}, newFilms[id], { inWatchList: !newFilms[id].inWatchList});
+            newFilms[id].inWatchList = !newFilms[id].inWatchList;
             
             return Object.assign({}, state, { films: newFilms, loading: false });
         }
         case Types.SELECT_FILM: {
             const { id } = action;
-            if (!Object.keys(state.films).includes(id.toString())) {
+
+            if (!Object.keys(state.films).includes(id)) {
                 return state;
             } 
             const selectedFilm = state.films[id];
