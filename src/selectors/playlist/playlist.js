@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { extractGenresFromFilm, isSomeGenreInFilter } from './utils';
+import { isSomeGenreInFilter } from './utils';
 
 const ALL_GENRES = 'all';
 const ALL_GENRES_LITERAL = 'All Genres';

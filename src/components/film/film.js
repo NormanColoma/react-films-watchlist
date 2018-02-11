@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './film.css';
 
 const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }) => {
@@ -45,6 +46,13 @@ const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }) =>
             </div>
         </div>
     )
+};
+
+FilmView.propTypes = {
+    film: PropTypes.object,
+    loading: PropTypes.bool.isRequired,
+    onAddToWatchlist: PropTypes.func.isRequired,
+    onRemoveFromWatchlist: PropTypes.func.isRequired
 };
 
 export default FilmView;

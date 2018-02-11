@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -67,6 +68,17 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(removeFromWatchlist(film.id));
     }
 });
+
+FilmComponent.propTypes = {
+    film: PropTypes.object,
+    loading: PropTypes.bool.isRequired,
+    filmInStore: PropTypes.bool.isRequired,
+    match: PropTypes.object,
+    selectFilm: PropTypes.func.isRequired,
+    fetchFilm: PropTypes.func.isRequired,
+    addToWatchlist: PropTypes.func.isRequired,
+    removeFromWatchlist: PropTypes.func.isRequired,
+};
 
 const Film = withRouter(connect(
     mapStateToProps,
