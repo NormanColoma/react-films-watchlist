@@ -6,6 +6,8 @@
     "classnames": "^2.2.5",
     "cross-fetch": "^1.1.1",
     "fetch": "^1.1.0",
+    "jest": "^22.2.2",
+    "jest-cli": "^22.2.2",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

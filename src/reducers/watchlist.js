@@ -1,6 +1,8 @@
 import * as Types from '../actions/types';
 
-const watchlist = (state = {}, action) => {
+const initialState = {};
+
+const watchlist = (state = initialState, action) => {
     switch (action.type) {
         case Types.ADD_TO_WATCHLIST: 
             const { film } = action;

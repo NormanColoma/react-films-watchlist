@@ -1,6 +1,13 @@
 import * as Types from '../actions/types';
 
-const playlist = (state = { films: {}, selectedFilm: null, loading: false, filter: 'all' }, action) => {
+const initialState = { 
+    films: {}, 
+    selectedFilm: null, 
+    loading: false, 
+    filter: 'all' 
+};
+
+const playlist = (state = initialState, action) => {
     switch (action.type) {
         case Types.ADD_TO_PLAYLIST: {
             const { film } = action;

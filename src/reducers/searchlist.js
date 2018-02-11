@@ -1,6 +1,8 @@
 import * as Actions from '../actions/types';
 
-const searchlist = (state = { posters: {}, loading: false }, action) => {
+const initialState = { posters: {}, loading: false };
+
+const searchlist = (state = initialState, action) => {
     switch (action.type) {
         case Actions.ADD_TO_SEARCHLIST: {
             const { posters } = action;
