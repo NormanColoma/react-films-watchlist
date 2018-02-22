@@ -3,7 +3,7 @@ import { TOGGLE_FILM, ADD_TO_PLAYLIST, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, 
 export const toggleFilm = (id) => ({
   type: TOGGLE_FILM,
   id
-});
+}: Action);
 
 export const addToWatchlist = (film) => ({
   type: ADD_TO_WATCHLIST,

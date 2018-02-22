@@ -1,13 +1,22 @@
+// @flow
 import * as Types from '../actions/types';
+import Film from '../domain/Film';
 
-const initialState = { 
+type State = {
+    films: Object,
+    selectedFilm: ?Film,
+    loading: boolean,
+    filter: string
+}
+
+const initialState: State = { 
     films: {}, 
     selectedFilm: null, 
     loading: false, 
     filter: 'all' 
 };
 
-const playlist = (state = initialState, action) => {
+const playlist = (state: State = initialState, action: Object) => {
     switch (action.type) {
         case Types.ADD_TO_PLAYLIST: {
             const { film } = action;

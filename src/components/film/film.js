@@ -1,8 +1,16 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import Film from '../../domain/Film';
 import './film.css';
 
-const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }) => {
+type Props = {
+    film: Film,
+    loading: boolean,
+    onAddToWatchlist: Function,
+    onRemoveFromWatchlist: Function
+}
+
+const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }: Props) => {
     if(loading) {
         return <div>
                 <h1 className="not-found-message">Fetching film...</h1>
@@ -46,13 +54,6 @@ const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }) =>
             </div>
         </div>
     )
-};
-
-FilmView.propTypes = {
-    film: PropTypes.object,
-    loading: PropTypes.bool.isRequired,
-    onAddToWatchlist: PropTypes.func.isRequired,
-    onRemoveFromWatchlist: PropTypes.func.isRequired
 };
 
 export default FilmView;
