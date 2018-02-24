@@ -1,8 +1,16 @@
+// @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './film-detail.css';
 
-const FilmDetail = ({ film, onFavFilm }) => {
+import Film from '../../../domain/Film';
+
+type Props = {
+    film: Film,
+    onFavFilm: function
+};
+
+const FilmDetail = ({ film, onFavFilm }: Props) => {
     const favClass = film.inWatchList ? 'film fav' : 'film rating';
     const linkToDetails = `/films/${film.id}`;
 

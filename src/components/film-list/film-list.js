@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import FilmDetail from './film-detail/film-detail';
@@ -5,7 +6,16 @@ import Film from '../../containers/film/film';
 import FilmFilter from './film-filter/film-filter';
 import './film-list.css';
 
-const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterPlaylist, filter, match }) => {
+type Props = {
+    playlist: Array<Object>,
+    filter: string,
+    match: Object,
+    onAddToWatchlist: function,
+    onRemoveFromWatchlist: function,
+    onFilterPlaylist: function
+};
+
+const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterPlaylist, filter, match }: Props) => {
     const films = playlist.map((film) => {
         const onFavFilm = film.inWatchList ? onRemoveFromWatchlist : onAddToWatchlist;
 
@@ -14,7 +24,7 @@ const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterP
         </li>;
     });
 
-    const handleOnFilter = (event) => {
+    const handleOnFilter = (event: Object) => {
         onFilterPlaylist(event.target.id);
     }
 

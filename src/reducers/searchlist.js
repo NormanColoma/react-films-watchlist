@@ -1,8 +1,15 @@
+// @flow
 import * as Actions from '../actions/types';
+import PosterFilm from '../domain/PosterFilm';
 
-const initialState = { posters: {}, loading: false };
+export type State = {
+    posters: PosterFilm,
+    loading: boolean
+}
 
-const searchlist = (state = initialState, action) => {
+const initialState: State = { posters: {}, loading: false };
+
+const searchlist = (state: State = initialState, action: Object) => {
     switch (action.type) {
         case Actions.ADD_TO_SEARCHLIST: {
             const { posters } = action;

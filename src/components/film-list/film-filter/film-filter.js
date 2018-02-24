@@ -1,20 +1,35 @@
+// @flow
 import React, { Component } from 'react';
 import './film-filter.css';
 
-class FilmFilter extends Component {
-    node = null; 
+type Props = {
+    onFilterSelected: Function,
+    selectedFilter: Function,
+    selectedFilter: string
+};
+
+type State = {
+    showFilter: boolean,
+    chevronDown: boolean
+};
+
+class FilmFilter extends Component <Props, State> {
+    node: any = null; 
 
     constructor() {
         super();
         this.state = { showFilter: false, chevronDown: false };
+        //$FlowFixMe
         this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     componentDidMount() {
+        //$FlowFixMe
         document.addEventListener('click', this.handleClickOutside);
     }
 
     componentWillUnmount() {
+        //$FlowFixMe
         document.removeEventListener('click', this.handleClickOutside);
     }
 
@@ -61,7 +76,7 @@ class FilmFilter extends Component {
         }));
     }
 
-    handleClickOutside(event) {
+    handleClickOutside(event: Object) {
         if (this.node.contains(event.target)) {
             return;
         } 

@@ -1,10 +1,13 @@
-const COMMA = ',';
-const NONE = "";
+// @flow
+import Film from '../../domain/Film';
 
-export const extractGenresFromFilm = (genre) => {
-    let i = 0;
-    const genres = [];
-    let genreExtracted = NONE; 
+const COMMA: string = ',';
+const NONE: string = "";
+
+export const extractGenresFromFilm = (genre: string) => {
+    let i: number = 0;
+    const genres: Array<string> = [];
+    let genreExtracted: string = NONE; 
 
     while(i <= genre.length) {
         if (genre[i] === COMMA || i === genre.length) {
@@ -18,7 +21,7 @@ export const extractGenresFromFilm = (genre) => {
     return genres;
 }
 
-export const isSomeGenreInFilter = (film, filter) => { 
+export const isSomeGenreInFilter = (film: Film, filter: Object) => { 
     const genre = film.genre.replace(/\s/g, NONE);
     const genres = extractGenresFromFilm(genre.toLowerCase());
 

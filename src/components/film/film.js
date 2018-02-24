@@ -8,7 +8,7 @@ type Props = {
     loading: boolean,
     onAddToWatchlist: Function,
     onRemoveFromWatchlist: Function
-}
+};
 
 const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }: Props) => {
     if(loading) {

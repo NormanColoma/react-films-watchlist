@@ -1,16 +1,18 @@
+// @flow
 import { createSelector } from 'reselect';
 import { isSomeGenreInFilter } from './utils';
+import type { State } from '../../reducers/playlist';
 
-const ALL_GENRES = 'all';
-const ALL_GENRES_LITERAL = 'All Genres';
+const ALL_GENRES: string = 'all';
+const ALL_GENRES_LITERAL: string = 'All Genres';
 
 
-const getFilms = state => state.films;
-const getSelectedId = (state, id) => id;
-const getFilter = (state, paramsFilter) => paramsFilter || state.filter;
+const getFilms = (state: State) => state.films;
+const getSelectedId = (state: State, id: string) => id;
+const getFilter = (state: State, paramsFilter: Object) => paramsFilter || state.filter;
 
-export const getFilm = (state) => state.selectedFilm;
-export const isLoading = (state) => state.loading;
+export const getFilm = (state: State) => state.selectedFilm;
+export const isLoading = (state: State) => state.loading;
 
 export const getPlaylist = createSelector(
     [getFilms],

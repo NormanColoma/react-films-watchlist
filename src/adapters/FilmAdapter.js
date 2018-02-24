@@ -1,7 +1,8 @@
+// @flow
 import Film from '../domain/Film';
 
 export default class FilmAdapter {
-    static toDomain(filmJson) {
+    static toDomain(filmJson: Object) {
         const film = new Film();
         film.id = filmJson.imdbID;
         film.name = filmJson.Title;

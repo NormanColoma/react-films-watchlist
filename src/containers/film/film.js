@@ -1,6 +1,10 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+
+//Domain
+import * as Domain from '../../domain/Film';
 
 //Actions creators
 import { selectFilm, addToWatchlist, removeFromWatchlist, toggleFilm } from '../../actions/index';
@@ -8,10 +12,23 @@ import { fetchFilmById } from '../../actions/async/index';
 
 //Reducers and actions
 import { getFilm, filmIsLoading, existsFilm } from '../../selectors'
+import type { State } from '../../reducers/playlist';
 
+//Components
 import FilmView from '../../components/film/film';
 
-class FilmComponent extends Component {
+type Props = {
+    selectFilm: function,
+    fetchFilm: function,
+    addToWatchlist: function,
+    removeFromWatchlist: function,
+    filmInStore: boolean,
+    match: Object,
+    film: Domain.Film,
+    loading: boolean
+};
+
+class FilmComponent extends Component <Props> {
     componentDidMount() {
        const { selectFilm, fetchFilm, match, filmInStore } = this.props;
 
@@ -32,35 +49,35 @@ class FilmComponent extends Component {
         />;
     }
 
-    handleAddFilmToWatchlist(film) {
+    handleAddFilmToWatchlist(film: Domain.Film) {
         this.props.addToWatchlist(film);
     }
 
-    handleRemoveFilmFromWatchlist(film) {
+    handleRemoveFilmFromWatchlist(film: Domain.Film) {
         this.props.removeFromWatchlist(film);
     }
 }
 
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state: State, ownProps: Object) => ({
     film: getFilm(state),
     loading: filmIsLoading(state),
     filmInStore: existsFilm(state, ownProps.match.params.id)
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    selectFilm: id => {
+const mapDispatchToProps = (dispatch: function) => ({
+    selectFilm: (id: string) => {
         dispatch(selectFilm(id))
     },
-    fetchFilm: id => {
+    fetchFilm: (id: string) => {
         dispatch(fetchFilmById(id))
     },
-    addToWatchlist: film => {
+    addToWatchlist: (film: Domain.Film) => {
         dispatch(toggleFilm(film.id));
         dispatch(selectFilm(film.id));
         dispatch(addToWatchlist(film));
     },
-    removeFromWatchlist: film => {
+    removeFromWatchlist: (film: Domain.Film) => {
         dispatch(toggleFilm(film.id));
         dispatch(selectFilm(film.id));
         dispatch(removeFromWatchlist(film.id));

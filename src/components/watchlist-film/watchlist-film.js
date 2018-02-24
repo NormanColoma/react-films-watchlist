@@ -1,7 +1,14 @@
+// @flow
 import React from 'react';
 import './watchlist-film.css';
+import Film from '../../domain/Film';
 
-const WatchlistFilm = ({ film, onRemoveFilm }) => {
+type Props = {
+    film: Film,
+    onRemoveFilm: function
+};
+
+const WatchlistFilm = ({ film, onRemoveFilm }: Props) => {
     return (
         <div className="film container">
             <img src={film.poster} alt={film.name} />

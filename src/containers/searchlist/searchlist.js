@@ -1,9 +1,13 @@
+// @flow
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 
+//Domain
+import PosterFilm from '../../domain/PosterFilm';
+import type { State } from '../../reducers/searchlist';
 //Actions
-import { fetchFilmById } from '../../actions/async/index';
+import { fetchFilmById, fetchFilm } from '../../actions/async/index';
 import { fetchFilmsByTerm } from '../../actions/async/index';
 
 //Selectors 
@@ -12,7 +16,14 @@ import { getSearchlist } from '../../selectors';
 //Components
 import SearchlistView from '../../components/searchlist-view/searchlist-view';
 
-class SearchlistComponent extends Component {
+type Props = {
+    posters: PosterFilm,
+    searchFilms: function,
+    history: Object,
+    searchFilms: function,
+};
+
+class SearchlistComponent extends Component <Props> {
     render () {
         const { posters } = this.props;
 
@@ -23,7 +34,7 @@ class SearchlistComponent extends Component {
             />;
     }
 
-    handleOnSearch(term) {
+    handleOnSearch(term: string) {
         const { searchFilms } = this.props;
         searchFilms(term);
     }
@@ -36,15 +47,15 @@ class SearchlistComponent extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: State) => ({
     posters: getSearchlist(state)
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    searchFilms: term => {
+const mapDispatchToProps = (dispatch: function) => ({
+    searchFilms: (term: string) => {
         dispatch(fetchFilmsByTerm(term));
     },
-    fetchFilm: id => {
+    fetchFilm: (id: string) => {
         dispatch(fetchFilmById(id))
     }
 });

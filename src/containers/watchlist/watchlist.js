@@ -1,4 +1,8 @@
+// @flow
 import { connect } from 'react-redux';
+
+//Domain
+import Film from '../../domain/Film';
 
 //Actions
 import { toggleFilm, removeFromWatchlist} from '../../actions/index';
@@ -10,12 +14,12 @@ import { getWatchlist } from '../../selectors';
 import WatchListView from '../../components/watchlist-view/watchlist-view';
 
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: Object) => ({
     watchlist: getWatchlist(state)
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    onRemoveFilm: film => {
+const mapDispatchToProps = (dispatch: function) => ({
+    onRemoveFilm: (film: Film) => {
         dispatch(toggleFilm(film.id));
         dispatch(removeFromWatchlist(film.id));
     }

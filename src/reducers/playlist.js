@@ -1,13 +1,14 @@
 // @flow
 import * as Types from '../actions/types';
+import type { Action } from '../actions';
 import Film from '../domain/Film';
 
-type State = {
+export type State = {
     films: Object,
     selectedFilm: ?Film,
     loading: boolean,
     filter: string
-}
+};
 
 const initialState: State = { 
     films: {}, 

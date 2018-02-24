@@ -1,6 +1,8 @@
+// @flow
 import { createSelector } from 'reselect';
+import type { State } from '../reducers/searchlist';
 
-const getPosters = state => state.posters;
+const getPosters = (state: State) => state.posters;
 
 export const getSearchlist = createSelector(
     [getPosters],

@@ -1,8 +1,9 @@
+// @flow
 import * as Types from '../actions/types';
 
-const initialState = {};
+const initialState: Object = {};
 
-const watchlist = (state = initialState, action) => {
+const watchlist = (state: Object = initialState, action: Object) => {
     switch (action.type) {
         case Types.ADD_TO_WATCHLIST: 
             const { film } = action;

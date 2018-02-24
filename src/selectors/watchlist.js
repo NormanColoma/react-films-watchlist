@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const getFilms = state => state;
+const getFilms = (state : Object) => state;
 
 export const getWatchlist = createSelector(
     [getFilms],

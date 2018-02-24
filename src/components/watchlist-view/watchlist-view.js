@@ -1,11 +1,18 @@
+// @flow
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './watchlist-view.css';
 
 import WatchlistFilm from '../watchlist-film/watchlist-film';
+import Film from '../../domain/Film';
 
-const WatchListView = ({ watchlist, onRemoveFilm }) => {
-    if (watchlist.length === 0 | !watchlist) {
+type Props = {
+    watchlist: Array<Film>,
+    onRemoveFilm: function
+};
+
+const WatchListView = ({ watchlist, onRemoveFilm }: Props) => {
+    if (watchlist.length === 0 || !watchlist) {
         return (
             <div>
                 <div className="watchlist header">
@@ -18,7 +25,7 @@ const WatchListView = ({ watchlist, onRemoveFilm }) => {
             </div>
         )
     }
-    const films = watchlist.map((film) => {
+    const films: Array<Object> = watchlist.map((film) => {
         return  <li key={film.id}>
             <WatchlistFilm film={film} onRemoveFilm={onRemoveFilm}/>
         </li>

@@ -1,17 +1,25 @@
+// @flow
 import React from 'react';
 import './searchlist-view.css';
+import PosterFilm from '../../domain/PosterFilm';
 
-const SearchlistView = ({ onSearch, onFilmClicked, posters }) => {
-    const handleOnChange = (event) => {
-        const { keyCode } = event;
-        const term = event.target.value;
+type Props = {
+    onSearch: function,
+    onFilmClicked: function,
+    posters: Array<PosterFilm>
+};
+
+const SearchlistView = ({ onSearch, onFilmClicked, posters }: Props) => {
+    const handleOnChange: function = (event: Object) => {
+        const { keyCode }: any = event;
+        const term: string = event.target.value;
         
         if (keyCode === 13) {
             onSearch(term);
         }
     }
 
-    const handleOnClick = (poster) => {
+    const handleOnClick = (poster: PosterFilm) => {
         onFilmClicked(poster.id);
     }
 
