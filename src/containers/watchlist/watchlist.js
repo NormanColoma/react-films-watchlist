@@ -18,7 +18,7 @@ const mapStateToProps = (state: Object) => ({
     watchlist: getWatchlist(state)
 });
 
-const mapDispatchToProps = (dispatch: function) => ({
+const mapDispatchToProps = (dispatch: Function) => ({
     onRemoveFilm: (film: Film) => {
         dispatch(toggleFilm(film.id));
         dispatch(removeFromWatchlist(film.id));

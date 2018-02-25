@@ -7,7 +7,7 @@ import Film from '../../../domain/Film';
 
 type Props = {
     film: Film,
-    onFavFilm: function
+    onFavFilm: Function
 };
 
 const FilmDetail = ({ film, onFavFilm }: Props) => {

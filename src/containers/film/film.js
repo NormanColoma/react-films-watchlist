@@ -18,10 +18,10 @@ import type { State } from '../../reducers/playlist';
 import FilmView from '../../components/film/film';
 
 type Props = {
-    selectFilm: function,
-    fetchFilm: function,
-    addToWatchlist: function,
-    removeFromWatchlist: function,
+    selectFilm: Function,
+    fetchFilm: Function,
+    addToWatchlist: Function,
+    removeFromWatchlist: Function,
     filmInStore: boolean,
     match: Object,
     film: Domain.Film,
@@ -65,7 +65,7 @@ const mapStateToProps = (state: State, ownProps: Object) => ({
     filmInStore: existsFilm(state, ownProps.match.params.id)
 });
 
-const mapDispatchToProps = (dispatch: function) => ({
+const mapDispatchToProps = (dispatch: Function) => ({
     selectFilm: (id: string) => {
         dispatch(selectFilm(id))
     },

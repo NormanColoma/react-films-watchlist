@@ -51,7 +51,7 @@ class FilmFilter extends Component <Props, State> {
 
         const { showFilter, chevronDown } = this.state;
         const selectFilterClass = showFilter ? 'select-filter show' : 'select-filter';
-        const chevronClass = chevronDown ? 'fas fa-chevron-down last-down' : 'fas fa-chevron-down last-up';
+        // const chevronClass = chevronDown ? 'fas fa-chevron-down last-down' : 'fas fa-chevron-down last-up';
 
         return ( 
             <div>

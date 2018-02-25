@@ -1,6 +1,5 @@
 // @flow
 import * as Types from '../actions/types';
-import type { Action } from '../actions';
 import Film from '../domain/Film';
 
 export type State = {

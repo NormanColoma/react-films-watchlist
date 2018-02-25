@@ -10,9 +10,9 @@ type Props = {
     playlist: Array<Object>,
     filter: string,
     match: Object,
-    onAddToWatchlist: function,
-    onRemoveFromWatchlist: function,
-    onFilterPlaylist: function
+    onAddToWatchlist: Function,
+    onRemoveFromWatchlist: Function,
+    onFilterPlaylist: Function
 };
 
 const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterPlaylist, filter, match }: Props) => {

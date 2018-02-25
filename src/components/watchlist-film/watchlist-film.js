@@ -5,7 +5,7 @@ import Film from '../../domain/Film';
 
 type Props = {
     film: Film,
-    onRemoveFilm: function
+    onRemoveFilm: Function
 };
 
 const WatchlistFilm = ({ film, onRemoveFilm }: Props) => {

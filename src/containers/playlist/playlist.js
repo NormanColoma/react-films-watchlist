@@ -27,12 +27,11 @@ const PLAYLIST_FILMS: Array<string> = [
 ];
 
 type Props = {
-    fetchFilm: function,
-    addToWatchlist: function,
-    removeFromWatchlist: function,
-    history: Object,
-
-}
+    fetchFilm: Function,
+    addToWatchlist: Function,
+    removeFromWatchlist: Function,
+    history: Object
+};
 
 class PlaylistComponent extends Component <Props> {
     componentDidMount() {
@@ -65,7 +64,7 @@ const mapStateToProps = (state: State, {match: { params : { filter: paramsFilter
     filter: capitalizeFilter(paramsFilter || getSelectedFilter(state))
 });
 
-const mapDispatchToProps = (dispatch: function) => ({
+const mapDispatchToProps = (dispatch: Function) => ({
     addToWatchlist: (film: Film) => {
         dispatch(toggleFilm(film.id));
         dispatch(addToWatchlist(film));

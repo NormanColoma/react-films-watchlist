@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import PosterFilm from '../../domain/PosterFilm';
 import type { State } from '../../reducers/searchlist';
 //Actions
-import { fetchFilmById, fetchFilm } from '../../actions/async/index';
+import { fetchFilmById } from '../../actions/async/index';
 import { fetchFilmsByTerm } from '../../actions/async/index';
 
 //Selectors 
@@ -18,9 +18,9 @@ import SearchlistView from '../../components/searchlist-view/searchlist-view';
 
 type Props = {
     posters: PosterFilm,
-    searchFilms: function,
+    searchFilms: Function,
     history: Object,
-    searchFilms: function,
+    searchFilms: Function,
 };
 
 class SearchlistComponent extends Component <Props> {
@@ -51,7 +51,7 @@ const mapStateToProps = (state: State) => ({
     posters: getSearchlist(state)
 });
 
-const mapDispatchToProps = (dispatch: function) => ({
+const mapDispatchToProps = (dispatch: Function) => ({
     searchFilms: (term: string) => {
         dispatch(fetchFilmsByTerm(term));
     },

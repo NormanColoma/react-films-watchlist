@@ -8,7 +8,7 @@ import PosterFilm from '../../domain/PosterFilm';
 
 const API_URL = 'http://www.omdbapi.com/?apiKey=55b399cc';
 
-export const fetchFilm = (title: string) => async (dispatch: function) => {
+export const fetchFilm = (title: string) => async (dispatch: Function) => {
     try {
         const response: Object = await fetch(`${API_URL}&t=${title}&plot=full`);
         const json: Object = await response.json();
@@ -19,7 +19,7 @@ export const fetchFilm = (title: string) => async (dispatch: function) => {
     }
 }
 
-export const fetchFilmById = (id: string) => async (dispatch: function) => {
+export const fetchFilmById = (id: string) => async (dispatch: Function) => {
     try {
         dispatch(loadingFilm());
         const response: Object = await fetch(`${API_URL}&i=${id}&plot=full`);
@@ -33,7 +33,7 @@ export const fetchFilmById = (id: string) => async (dispatch: function) => {
     }
 }
 
-export const fetchFilmsByTerm = (term: string) => async (dispatch: function) => {
+export const fetchFilmsByTerm = (term: string) => async (dispatch: Function) => {
     try {
         const response: Object = await fetch(`${API_URL}&s=${term}&type=movie`);
         const { Search: films } = await response.json();

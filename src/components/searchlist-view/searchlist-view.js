@@ -4,13 +4,13 @@ import './searchlist-view.css';
 import PosterFilm from '../../domain/PosterFilm';
 
 type Props = {
-    onSearch: function,
-    onFilmClicked: function,
+    onSearch: Function,
+    onFilmClicked: Function,
     posters: Array<PosterFilm>
 };
 
 const SearchlistView = ({ onSearch, onFilmClicked, posters }: Props) => {
-    const handleOnChange: function = (event: Object) => {
+    const handleOnChange: Function = (event: Object) => {
         const { keyCode }: any = event;
         const term: string = event.target.value;
         
