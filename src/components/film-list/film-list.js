@@ -6,16 +6,28 @@ import Film from '../../containers/film/film';
 import FilmFilter from './film-filter/film-filter';
 import './film-list.css';
 
+const FILMS_PATH = "/films";
+
 type Props = {
     playlist: Array<Object>,
     filter: string,
+    loading: boolean,
     match: Object,
+    history: Object,
     onAddToWatchlist: Function,
     onRemoveFromWatchlist: Function,
     onFilterPlaylist: Function
 };
 
-const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterPlaylist, filter, match }: Props) => {
+const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterPlaylist, filter, match, loading, history }: Props) => {
+    const { location: { pathname }} = history;
+
+    if (loading && pathname === FILMS_PATH) {
+        return <div>
+                <h1 className="not-found-message">Fetching films...</h1>
+            </div>;
+    }
+
     const films = playlist.map((film) => {
         const onFavFilm = film.inWatchList ? onRemoveFromWatchlist : onAddToWatchlist;
 

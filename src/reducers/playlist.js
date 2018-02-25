@@ -18,6 +18,14 @@ const initialState: State = {
 
 const playlist = (state: State = initialState, action: Object) => {
     switch (action.type) {
+        case Types.LOAD_PLAYLIST: {
+            return Object.assign({}, state, { loading: true });
+        }
+        case Types.LOAD_PLAYLIST_COMPLETE: {
+            const { films } = action;
+
+            return Object.assign({}, state, { films, loading: false });
+        }
         case Types.ADD_TO_PLAYLIST: {
             const { film } = action;
             const filmNotAddedYet = !Object.keys(state.films).includes(film.id.toString());

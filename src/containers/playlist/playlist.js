@@ -7,36 +7,30 @@ import { withRouter } from 'react-router-dom';
 import Film from '../../domain/Film';
 
 //Actions creators
-import { toggleFilm, addToWatchlist, removeFromWatchlist } from '../../actions/index';
-import { fetchFilm } from '../../actions/async/index';
+import { toggleFilm, addToWatchlist, removeFromWatchlist, loadPlaylist } from '../../actions/index';
+import { fetchFilms } from '../../actions/async/index';
 import type { State } from '../../reducers/playlist';
 
 //Selectors
-import { getSelectedFilter, getVisibleFilms } from '../../selectors';
+import { getSelectedFilter, getVisibleFilms, filmIsLoading } from '../../selectors';
 
 //Components
 import FilmList from '../../components/film-list/film-list';
 
 const ALL_GENRES: string = 'all';
 const ALL_GENRES_LITERAL: string = 'All Genres';
-const PLAYLIST_FILMS: Array<string> = [
-    'Shutter Island', 'Django Unchained', 'Coco', 'Star Wars: Episode I', 'Star Wars: Episode II',
-    'Star Wars: Episode III', 'The Lord of the Rings: The fellowship of the ring', 'The Lord of the Rings: The two towers',
-    'The Lord of the Rings: The return of the king', 'Inception', 'Captain America: The First Avenger',
-    'Captain America: Civil War', 'Iron Man', 'Dunkirk'
-];
 
 type Props = {
-    fetchFilm: Function,
+    loadPlaylist: Function,
     addToWatchlist: Function,
     removeFromWatchlist: Function,
-    history: Object
+    loading: boolean
 };
 
 class PlaylistComponent extends Component <Props> {
     componentDidMount() {
-        const { fetchFilm } = this.props;
-        PLAYLIST_FILMS.forEach(film => fetchFilm(film));
+        const { loadPlaylist } = this.props;
+        loadPlaylist();
     }
 
     render() {
@@ -61,6 +55,7 @@ class PlaylistComponent extends Component <Props> {
 
 const mapStateToProps = (state: State, {match: { params : { filter: paramsFilter } }}: Object) => ({
     playlist: getVisibleFilms(state, paramsFilter),
+    loading: filmIsLoading(state),
     filter: capitalizeFilter(paramsFilter || getSelectedFilter(state))
 });
 
@@ -73,8 +68,9 @@ const mapDispatchToProps = (dispatch: Function) => ({
         dispatch(toggleFilm(film.id));
         dispatch(removeFromWatchlist(film.id));
     },
-    fetchFilm: (title: string) => {
-        dispatch(fetchFilm(title))
+    loadPlaylist: () => {
+        dispatch(loadPlaylist());
+        dispatch(fetchFilms());
     }
 });
 

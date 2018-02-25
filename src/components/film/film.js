@@ -11,7 +11,7 @@ type Props = {
 };
 
 const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }: Props) => {
-    if(loading) {
+    if (loading) {
         return <div>
                 <h1 className="not-found-message">Fetching film...</h1>
             </div>;
