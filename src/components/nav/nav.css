@@ -1,6 +1,7 @@
 .navlist {
     padding-left: 10px;
     margin: 0;
+    float: none;
 }
 
 .navlist li {
@@ -10,9 +11,14 @@
 .navlist li a {
     color: #fff;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .navlist li a:hover {
     color: #008CBA;
     text-decoration: underline;
+}
+
+.navlist li:last-child {
+    float: right;
 }

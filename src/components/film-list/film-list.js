@@ -6,6 +6,8 @@ import Film from '../../containers/film/film';
 import FilmFilter from './film-filter/film-filter';
 import './film-list.css';
 
+import firebase from '../../configureFirebase';
+
 const FILMS_PATH = "/films";
 
 type Props = {
@@ -21,7 +23,6 @@ type Props = {
 
 const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterPlaylist, filter, match, loading, history }: Props) => {
     const { location: { pathname }} = history;
-
     if (loading && pathname === FILMS_PATH) {
         return <div>
                 <h1 className="not-found-message">Fetching films...</h1>

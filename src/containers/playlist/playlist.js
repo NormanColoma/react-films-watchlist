@@ -29,8 +29,10 @@ type Props = {
 
 class PlaylistComponent extends Component <Props> {
     componentDidMount() {
-        const { loadPlaylist } = this.props;
-        loadPlaylist();
+        const { loadPlaylist, fireAuth, playlist } = this.props;
+        if (playlist.length === 0) {
+            loadPlaylist();
+        }
     }
 
     render() {

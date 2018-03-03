@@ -67,3 +67,14 @@ export const fetchFilmsByTerm = (term: string) => async (dispatch: Function) => 
         // TODO: Dispatch action when error
     }
 }
+
+export const authenticateUser = () => (dispatch: Function) => {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          debugger;
+        } else {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithRedirect(provider);
+        }
+    });
+}
