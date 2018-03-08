@@ -6,8 +6,6 @@ import Film from '../../containers/film/film';
 import FilmFilter from './film-filter/film-filter';
 import './film-list.css';
 
-import firebase from '../../configureFirebase';
-
 const FILMS_PATH = "/films";
 
 type Props = {

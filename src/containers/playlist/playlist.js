@@ -29,7 +29,7 @@ type Props = {
 
 class PlaylistComponent extends Component <Props> {
     componentDidMount() {
-        const { loadPlaylist, fireAuth, playlist } = this.props;
+        const { loadPlaylist, playlist } = this.props;
         if (playlist.length === 0) {
             loadPlaylist();
         }

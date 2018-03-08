@@ -2,7 +2,7 @@
 import fetch from 'cross-fetch';
 import FilmAdapter from '../../adapters/FilmAdapter';
 import PosterFilmAdapter from '../../adapters/PosterFilmAdapter';
-import { addToPlaylist, loadingFilm, selectFilm, addToSearchlist, loadPlaylistComplete } from '../index';
+import { addToPlaylist, loadingFilm, selectFilm, addToSearchlist, loadPlaylistComplete, userAuthenticated, toggleCheckAuthentication } from '../index';
 import Film from '../../domain/Film';
 import PosterFilm from '../../domain/PosterFilm';
 import firebase from '../../configureFirebase';
@@ -68,13 +68,17 @@ export const fetchFilmsByTerm = (term: string) => async (dispatch: Function) => 
     }
 }
 
-export const authenticateUser = () => (dispatch: Function) => {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          debugger;
+export const authenticateUser = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithRedirect(provider);
+}
+
+export const checkAuthentication = () => (dispatch: Function) => {
+    firebase.auth().onAuthStateChanged((principal) => {
+        if (principal) {
+            dispatch(userAuthenticated(principal));
         } else {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithRedirect(provider);
+            dispatch(toggleCheckAuthentication());
         }
     });
 }

@@ -1,8 +1,17 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './nav.css';
 
-const Nav  = ({onClickAuth}) => {
+const Nav  = ({onClickAuth, authenticated, loading, user}) => {
+    let loginButton = null;
+    if (!authenticated && !loading) {
+        loginButton =  <a className="loginLink" onClick={onClickAuth}>Accede</a>;
+    }
+    
+    if (user) {
+        const { displayName } = user;
+        loginButton = <a>{displayName}</a>
+    }
     return(
         <header className="App-header">
             <h1 className="App-title">Watchlist Maker</h1>
@@ -17,7 +26,7 @@ const Nav  = ({onClickAuth}) => {
                     <NavLink to="/search">Search</NavLink>
                 </li>
                 <li>
-                    <a className="loginLink" onClick={onClickAuth}>Accede</a>
+                   {loginButton}
                 </li>
             </ul>
         </header>

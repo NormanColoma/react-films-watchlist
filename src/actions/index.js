@@ -1,6 +1,6 @@
 // @flow
 import { TOGGLE_FILM, ADD_TO_PLAYLIST, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SELECT_FILM, 
-  LOADING_FILM, FILTER_FILMS, ADD_TO_SEARCHLIST, LOAD_PLAYLIST, LOAD_PLAYLIST_COMPLETE } from './types';
+  LOADING_FILM, FILTER_FILMS, ADD_TO_SEARCHLIST, LOAD_PLAYLIST, LOAD_PLAYLIST_COMPLETE, USER_AUTHENTICATED, TOGGLE_CHECK_AUTHENTICATION } from './types';
 import Film from '../domain/Film';
 import PosterFilm from '../domain/PosterFilm';
 
@@ -59,4 +59,13 @@ export const loadPlaylist = () =>({
 export const loadPlaylistComplete = (films: Array<Film>) => ({
   type: LOAD_PLAYLIST_COMPLETE,
   films
+});
+
+export const userAuthenticated = (principal: Object) => ({
+  type: USER_AUTHENTICATED,
+  principal
+});
+
+export const toggleCheckAuthentication = () => ({
+  type: TOGGLE_CHECK_AUTHENTICATION
 });

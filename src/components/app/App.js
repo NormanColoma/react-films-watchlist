@@ -6,18 +6,26 @@ import WatchList from '../../containers/watchlist/watchlist';
 import Searchlist from '../../containers/searchlist/searchlist';
 import Nav from '../nav/nav';
 
-import { authenticateUser } from '../../actions/async';
+import { authenticateUser, checkAuthentication } from '../../actions/async';
+import { isAuthenticated, checkingAuthentication, getAuthenticatedUser } from '../../selectors';
+import type { State } from '../../reducers/user';
 
 import './App.css';
 
 class App extends Component {
-  render() {
-    
 
+  componentDidMount() {
+    const { isUserAuthenticated } = this.props;
+    isUserAuthenticated();
+  }
+
+  render() {
+    const { authenticated, loading, user } = this.props;
+  
     return (
       <div className="App">
         <div className="App-container">
-          <Nav onClickAuth = {() => this.handleAuth()} />
+          <Nav onClickAuth = {() => this.handleAuth()} authenticated={authenticated} loading={loading} user={user}/>
           <Switch>
             <Redirect exact from="/" to="/films" />
             <Route path='/films/genre/:filter' component={Playlist} />
@@ -36,12 +44,21 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state: State) => ({
+  authenticated: isAuthenticated(state),
+  loading: checkingAuthentication(state),
+  user: getAuthenticatedUser(state)
+});
+
 const mapDispatchToProps = (dispatch: Function) => ({
   fireAuth: () => {
       dispatch(authenticateUser());
+  },
+  isUserAuthenticated: () => {
+    dispatch(checkAuthentication());
   }
 });
 
 
 
-export default connect(null,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);

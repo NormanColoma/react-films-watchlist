@@ -1,6 +1,7 @@
 import * as playlistSelectors from './playlist/playlist';
 import * as watchlistSelectors from './watchlist';
 import * as searchlistSelectors from './searchlist';
+import * as userSelectors from './user';
 
 //Playlist
 export const getPlaylist = (state) => playlistSelectors.getPlaylist(state.playlist);
@@ -15,3 +16,8 @@ export const getWatchlist = (state) => watchlistSelectors.getWatchlist(state.wat
 
 //Searchlist
 export const getSearchlist = (state) => searchlistSelectors.getSearchlist(state.searchlist);
+
+//User 
+export const isAuthenticated = (state) => userSelectors.isAuthenticated(state.user);
+export const checkingAuthentication = (state) => userSelectors.isCheckingAuthentication(state.user);
+export const getAuthenticatedUser = (state) => userSelectors.getPrincipal(state.user);
