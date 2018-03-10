@@ -9,7 +9,7 @@ const Nav  = ({onClickAuth, authenticated, loading, user}) => {
     }
     
     if (user) {
-        const { displayName, photoURL } = user;
+        const { photoURL } = user;
         loginButton = <div className="profile"><img src={photoURL} alt="profile img"/></div>;
     }
     return(

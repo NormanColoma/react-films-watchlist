@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Playlist from '../../containers/playlist/playlist';
 import WatchList from '../../containers/watchlist/watchlist';
@@ -61,4 +61,4 @@ const mapDispatchToProps = (dispatch: Function) => ({
 
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));
