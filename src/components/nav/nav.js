@@ -9,8 +9,8 @@ const Nav  = ({onClickAuth, authenticated, loading, user}) => {
     }
     
     if (user) {
-        const { displayName } = user;
-        loginButton = <a>{displayName}</a>
+        const { displayName, photoURL } = user;
+        loginButton = <div className="profile"><img src={photoURL} alt="profile img"/></div>;
     }
     return(
         <header className="App-header">

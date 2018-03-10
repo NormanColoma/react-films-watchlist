@@ -22,3 +22,12 @@
 .navlist li:last-child {
     float: right;
 }
+
+.profile {
+    margin-top: -15px;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 40px;
+}
