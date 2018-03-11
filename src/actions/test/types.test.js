@@ -78,4 +78,10 @@ describe('action creators', () => {
 
         expect(Actions.loadingFilm()).toEqual(expectedAction);
     });
+
+    it('should return clearSearchlist action', () => {
+        const expectedAction = { type: Types.CLEAR_SEARCHLIST };
+
+        expect(Actions.clearSearchlist()).toEqual(expectedAction);
+    });
 });

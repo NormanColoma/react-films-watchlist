@@ -6,4 +6,5 @@ export const SELECT_FILM = 'SELECT_FILM';
 export const LOADING_FILM = 'LOADING_FILM';
 export const FILTER_FILMS = 'FILTER_FILMS';
 export const ADD_TO_SEARCHLIST = 'ADD_TO_SEARCHLIST';
+export const CLEAR_SEARCHLIST = 'CLEAR_SEARCHLIST';
   

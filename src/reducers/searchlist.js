@@ -21,6 +21,10 @@ const searchlist = (state: State = initialState, action: Object) => {
 
             return Object.assign({}, state, { posters: newPosters });
         }
+
+        case Actions.CLEAR_SEARCHLIST: {
+            return Object.assign({}, state, initialState);
+        }
         default: 
             return state;
     }

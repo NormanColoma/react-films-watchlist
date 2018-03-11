@@ -18,7 +18,14 @@ class App extends Component {
             <Route path='/films/genre/:filter' component={Playlist} />
             <Route path='/films' component={Playlist} />
             <Route path='/watchlist' component={WatchList} />
-            <Route path='/search' component={Searchlist} />
+            <Route path='/search' component={Searchlist} 
+              onEnter={() => {
+                debugger;
+              }}
+              onLeave={() => {
+                debugger;
+              }} 
+            />
           </Switch>
         </div>
       </div>

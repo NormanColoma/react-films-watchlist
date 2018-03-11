@@ -1,5 +1,5 @@
 import searchlist from '../searchlist';
-import { addToSearchlist } from '../../actions';
+import { addToSearchlist, clearSearchlist } from '../../actions';
 
 describe('searchlist reducer', () => {
     
@@ -22,5 +22,19 @@ describe('searchlist reducer', () => {
         };
 
         expect(searchlist(initialState, addToSearchlist(newPosters))).toEqual(expectedState);
+    });
+
+    it('should clear search list', () => {
+        const initialState = {  
+            posters: {
+                "1": { id: 1, name: 'first film' },
+                "2": { id: 2, name: 'second film' }
+            },
+            loading: false
+        };
+
+        const expectedState = { posters: {}, loading: false };
+
+        expect(searchlist(initialState, clearSearchlist())).toEqual(expectedState);
     });
 });
