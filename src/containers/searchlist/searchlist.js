@@ -15,6 +15,7 @@ import { getSearchlist } from '../../selectors';
 
 //Components
 import SearchlistView from '../../components/searchlist-view/searchlist-view';
+import { clearSearchlist } from '../../actions';
 
 type Props = {
     posters: PosterFilm,
@@ -24,6 +25,12 @@ type Props = {
 };
 
 class SearchlistComponent extends Component <Props> {
+
+    componentDidMount() {
+        const { clearSearch } = this.props;
+        clearSearch();
+    }
+
     render () {
         const { posters } = this.props;
 
@@ -57,6 +64,9 @@ const mapDispatchToProps = (dispatch: Function) => ({
     },
     fetchFilm: (id: string) => {
         dispatch(fetchFilmById(id))
+    },
+    clearSearch: () => {
+        dispatch(clearSearchlist())
     }
 });
 
