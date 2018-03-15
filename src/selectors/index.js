@@ -12,6 +12,7 @@ export const getVisibleFilms = (state, paramsFilter) => playlistSelectors.getVis
 
 //Watchlist
 export const getWatchlist = (state) => watchlistSelectors.getWatchlist(state.watchlist);
+export const getNumberOfFilmsInWatchList = (state) => watchlistSelectors.getNumberOfFilms(state.watchlist);
 
 //Searchlist
 export const getSearchlist = (state) => searchlistSelectors.getSearchlist(state.searchlist);

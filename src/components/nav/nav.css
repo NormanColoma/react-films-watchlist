@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.navlist li:first-child {
+    padding-right: 40px;
+}
+
 .navlist li {
     padding-right: 25px;
 }
@@ -16,3 +20,23 @@
     color: #008CBA;
     text-decoration: underline;
 }
+
+.watchlist-counter {
+    float: right;
+    width: 23px;
+    height: 20px;
+    margin-left: 5px;
+    margin-top: -10px;
+    background-color: #cc1235;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 20px;
+    -webkit-font-smoothing: antialiased;
+    opacity:0;
+    transition:opacity 0.5s linear;
+}
+
+.watchlist-counter.show {
+    opacity:1;
+}
+
