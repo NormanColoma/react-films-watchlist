@@ -1,14 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
+//Components and styles
+import Counter from './counter/counter';
 import './nav.css';
 
-const renderCounter = (numberOfFilms) => {
-    if (numberOfFilms === 0) {
-        return <div className="watchlist-counter">{ numberOfFilms }</div>;
-    } 
-    return <div className="watchlist-counter show">{ numberOfFilms }</div>;
-}
- 
 const Nav  = ({ numberOfFilms }) => {
     return(
         <header className="App-header">
@@ -19,7 +15,7 @@ const Nav  = ({ numberOfFilms }) => {
                 </li>
                 <li>
                     <NavLink to="/watchlist">Watchlist</NavLink>
-                    { renderCounter(numberOfFilms) }
+                    <Counter numberOfFilms={numberOfFilms} />
                 </li>
                 <li>
                     <NavLink to="/search">Search</NavLink>
