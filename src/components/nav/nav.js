@@ -11,14 +11,14 @@ const Nav  = ({ numberOfFilms }) => {
             <h1 className="App-title">Watchlist Maker</h1>
             <ul className="navlist">
                 <li>
-                    <NavLink exact to="/films">Films</NavLink>
+                    <NavLink strict to="/films">Films</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/watchlist">Watchlist</NavLink>
+                    <NavLink strict to="/watchlist">Watchlist</NavLink>
                     <Counter numberOfFilms={numberOfFilms} />
                 </li>
                 <li>
-                    <NavLink to="/search">Search</NavLink>
+                    <NavLink strict to="/search">Search</NavLink>
                 </li>
             </ul>
         </header>
