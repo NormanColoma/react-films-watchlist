@@ -14,6 +14,25 @@ import Nav from '../nav/nav';
 import './App.css';
 import { getNumberOfFilmsInWatchList } from '../../selectors';
 
+const AppRoutes = [
+  {
+    path: '/films/genre/:filter',
+    component: Playlist
+  },
+  {
+    path: '/films',
+    component: Playlist
+  },
+  {
+    path: '/watchlist',
+    component: WatchList
+  },
+  {
+    path: '/search',
+    component: Searchlist
+  }
+];
+
 class App extends Component {
   render() {
     const { numberOfFilms } = this.props;
@@ -24,10 +43,7 @@ class App extends Component {
           <Nav numberOfFilms={numberOfFilms}/>
           <Switch>
             <Redirect exact from="/" to="/films" />
-            <Route path='/films/genre/:filter' component={Playlist} />
-            <Route path='/films' component={Playlist} />
-            <Route path='/watchlist' component={WatchList} />
-            <Route path='/search' component={Searchlist} />
+            {AppRoutes.map(route => <Route key={route.path} path={route.path} component={route.component} />)}
           </Switch>
         </div>
       </div>
