@@ -51,7 +51,7 @@ class FilmFilter extends Component <Props, State> {
 
         const { showFilter, chevronDown } = this.state;
         const selectFilterClass = showFilter ? 'select-filter show' : 'select-filter';
-        // const chevronClass = chevronDown ? 'fas fa-chevron-down last-down' : 'fas fa-chevron-down last-up';
+        const chevronDownClass = chevronDown ? 'fas fa-chevron-down last-down' : 'fas fa-chevron-down last-up';
 
         return ( 
             <div>
@@ -60,7 +60,7 @@ class FilmFilter extends Component <Props, State> {
                     ref={(node) => { this.node = node; }} >
                     <i className="fas fa-filter"></i> 
                     <span>{selectedFilter}</span>
-                    <i className={chevronDown ? 'fas fa-chevron-down last-down' : 'fas fa-chevron-down last-up'}></i>
+                    <i className={chevronDownClass}></i>
                 </button>
                 <ul className={selectFilterClass}>
                     {filterOptions}
@@ -80,7 +80,7 @@ class FilmFilter extends Component <Props, State> {
         if (this.node.contains(event.target)) {
             return;
         } 
-        this.setState({ showFilter: false });
+        this.setState({ showFilter: false, chevronDown: false });
     }
 }
 

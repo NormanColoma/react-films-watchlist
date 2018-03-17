@@ -28,10 +28,12 @@
 
 .btn-filter svg.last-up {
     float: right;
+    transform: rotate(360deg);
 }
 
 .btn-filter svg.last-down {
     float: right;
+    transition: .2s ease all;
     transform: rotate(-180deg);
 }
 
@@ -44,7 +46,7 @@
     padding: 14px 0;
     position: absolute;
     right: 83px;
-    top: 170px;
+    top: 190px;
     opacity: 0;
     -webkit-transition: .2s ease all;
     transition: .2s ease all;
