@@ -1,6 +1,6 @@
 // @flow
 import { TOGGLE_FILM, ADD_TO_PLAYLIST, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SELECT_FILM, 
-  LOADING_FILM, FILTER_FILMS, ADD_TO_SEARCHLIST, CLEAR_SEARCHLIST } from './types';
+  LOADING_FILM, FILTER_FILMS, ADD_TO_SEARCHLIST, CLEAR_SEARCHLIST, SEARCHLIST_ERROR } from './types';
 import Film from '../domain/Film';
 import PosterFilm from '../domain/PosterFilm';
 
@@ -9,7 +9,8 @@ export type Action = {
   id?: string,
   film?: Film,
   filter?: string,
-  posters?: Array<PosterFilm>
+  posters?: Array<PosterFilm>,
+  error?: string
 };
 
 export const toggleFilm = (id: string) => ({
@@ -53,4 +54,9 @@ export const addToSearchlist = (posters: Array<PosterFilm>) => ({
 
 export const clearSearchlist = () =>({
   type: CLEAR_SEARCHLIST
+}: Action);
+
+export const searchlistError = (error: string) => ({
+  type: SEARCHLIST_ERROR,
+  error
 }: Action);

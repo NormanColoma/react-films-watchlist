@@ -4,10 +4,11 @@ import PosterFilm from '../domain/PosterFilm';
 
 export type State = {
     posters: PosterFilm,
-    loading: boolean
+    loading: boolean,
+    error: string
 }
 
-const initialState: State = { posters: {}, loading: false };
+const initialState: State = { posters: {}, loading: false, error: null };
 
 const searchlist = (state: State = initialState, action: Object) => {
     switch (action.type) {
@@ -24,6 +25,12 @@ const searchlist = (state: State = initialState, action: Object) => {
 
         case Actions.CLEAR_SEARCHLIST: {
             return Object.assign({}, state, initialState);
+        }
+
+        case Actions.SEARCHLIST_ERROR: {
+            const { error } = action;
+
+            return Object.assign({}, state, { error });
         }
         default: 
             return state;

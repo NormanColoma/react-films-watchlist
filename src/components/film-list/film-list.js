@@ -41,7 +41,7 @@ const FilmList = ({ playlist, onAddToWatchlist, onRemoveFromWatchlist, onFilterP
                         </ul>
                     </div>
                 )} />
-                <Route path={`${match.url}/:id`}component={Film} />
+                <Route path={`${match.url}/:id`} component={Film} />
            </Switch>
         </div>
     );

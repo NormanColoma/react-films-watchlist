@@ -10,6 +10,10 @@ input[type=text] {
     -webkit-transition: .2s ease all;
     -o-transition: .2s ease all;
     transition: .2s ease all;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    left: 0;
 }
   
 input[type=text]:focus {
@@ -110,3 +114,4 @@ input[type=text]:focus {
     float: left;
     animation: fa-spin 2s infinite linear;
 }
+

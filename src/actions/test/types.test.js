@@ -84,4 +84,11 @@ describe('action creators', () => {
 
         expect(Actions.clearSearchlist()).toEqual(expectedAction);
     });
+
+    it('should return searchlistError action', () => {
+        const error = 'Movie not found!';
+        const expectedAction = { type: Types.SEARCHLIST_ERROR, error };
+
+        expect(Actions.searchlistError(error)).toEqual(expectedAction);
+    });
 });

@@ -2,6 +2,7 @@
 import React from 'react';
 import './searchlist-view.css';
 import PosterFilm from '../../domain/PosterFilm';
+import SuggestionInputSearch from './suggestion-input-search/suggestion-input-search';
 
 type Props = {
     onSearch: Function,
@@ -10,13 +11,8 @@ type Props = {
 };
 
 const SearchlistView = ({ onSearch, onFilmClicked, posters }: Props) => {
-    const handleOnChange: Function = (event: Object) => {
-        const { keyCode }: any = event;
-        const term: string = event.target.value;
-        
-        if (keyCode === 13) {
-            onSearch(term);
-        }
+    const handleOnChange: Function = (term: string) => {
+        onSearch(term);
     }
 
     const handleOnClick = (poster: PosterFilm) => {
@@ -44,11 +40,11 @@ const SearchlistView = ({ onSearch, onFilmClicked, posters }: Props) => {
 
     return (
         <div className="default-conatiner">
-            <input 
-                type="text" 
-                name="search" 
-                placeholder="Search films..." 
-                onKeyDown={(event) => handleOnChange(event)} 
+           
+            <SuggestionInputSearch 
+                onSubmitFunction={handleOnChange} 
+                recentSearches={[]} 
+                placeholder={'Search films...'} 
             />
             <div className="search-containner">
                 <p className="results-title">There are <strong>{posters.length} results</strong> matching your search</p>
