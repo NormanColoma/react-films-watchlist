@@ -43,7 +43,7 @@ const SearchlistView = ({ onSearch, onFilmClicked, posters }: Props) => {
            
             <SuggestionInputSearch 
                 onSubmitFunction={handleOnChange} 
-                recentSearches={[]} 
+                recentSearches={['star wars', 'star wars IV', 'star trek', 'star wars I']} 
                 placeholder={'Search films...'} 
             />
             <div className="search-containner">
