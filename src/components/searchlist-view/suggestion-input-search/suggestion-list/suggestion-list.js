@@ -1,26 +1,42 @@
 import React from 'react';
+import './suggestion-list.css';
 
-const SuggestionList = ({ suggestions, handleOnClick, show, selectedItemIndex }) => {
+const SELECTED_CLASS = 'selected';
+const EMPTY_CLASS = "";
+
+const SuggestionList = ({ suggestions, onClickItem, onSelectedItemIndex, show, selectedItemIndex }) => {
 
     let suggestionListRef = null;
 
-    const onMouseOver = () => {
+    const onMouseOver = (event) => {
         const childrenElems = suggestionListRef.children;
+        const { target: element } = event;
+        const { parentElement } = element;
         
-        for(let i=0; i<childrenElems.length; i++) {
-            childrenElems[i].className = "";
+        for(let index=0; index<childrenElems.length; index++) {
+            const currentChildren = childrenElems[index];
+            currentChildren.className = EMPTY_CLASS;
+            if (element === currentChildren || parentElement === currentChildren) {
+                currentChildren.className = SELECTED_CLASS;
+                onSelectedItemIndex(index);
+            }
         }
     }
 
     const suggestionList = suggestions.map((it, index) => {
         if (index === selectedItemIndex) {
-            return <li key={it} className='selected' onClick={event => handleOnClick(event)}>
-                <span>{it}</span>
-            </li>;
+            return <li key={it} 
+                       className={SELECTED_CLASS} 
+                       onClick={event => onClickItem(event)} 
+                       onMouseOver={event => onMouseOver(event)}>
+                       <span>{it}</span>
+                    </li>;
         }
-        return <li key={it} onClick={event => handleOnClick(event)} onMouseOver={() => onMouseOver()}>
-            <span>{it}</span>
-            </li>;
+        return <li key={it} 
+                   onClick={event => onClickItem(event)} 
+                   onMouseOver={event => onMouseOver(event)}>
+                  <span>{it}</span>
+               </li>;
     });
 
     if (show) {

@@ -28,16 +28,16 @@ class SuggestionInputSearch extends React.Component {
         this.handleOnSearch = this.handleOnSearch.bind(this);
         this.handleOnKeyPress = this.handleOnKeyPress.bind(this);
         this.handleClickOutside = this.handleClickOutside.bind(this);
+        this.handleOnSelectedItemIndex = this.handleOnSelectedItemIndex.bind(this);
         this.inputRef = null;
+        this.inputClass = this.props.inputClass ? this.props.inputClass : 'suggestion-input';
     }
 
     componentDidMount() {
-        //$FlowFixMe
         document.addEventListener(CLICK_EVENT, this.handleClickOutside);
     }
 
     componentWillUnmount() {
-        //$FlowFixMe
         document.removeEventListener(CLICK_EVENT, this.handleClickOutside);
     }
 
@@ -68,7 +68,6 @@ class SuggestionInputSearch extends React.Component {
 
         if (keyCode === DOWN_ARROW_KEY_CODE || keyCode === UP_ARROW_KEY_CODE) {
             const selectedItemIndex = this.selectItem(suggestions, keyCode);
-            const selectItem = suggestions[selectedItemIndex];
             this.setState({selectedItemIndex});
             event.preventDefault();
         }
@@ -95,8 +94,13 @@ class SuggestionInputSearch extends React.Component {
         if (suggestions.length > EMPTY_SUGGESTIONS) {
             this.setState({ showSuggestions: true, suggestions, term });
         } else {
-            this.setState({ showSuggestions: false, suggestions, term });
+            this.setState({ showSuggestions: false, suggestions, term, selectedItemIndex: NO_SELECTED_ITEM_INDEX });
         }
+    }
+
+    getSuggestionsFor(term) {
+        const { recentSearches } = this.state;
+        return term !== EMPTY_SEARCH_TERM ? recentSearches.filter(it => it.toLowerCase().includes(term.toLowerCase())) : [];
     }
 
     handleOnClickOnItem(event) {
@@ -110,9 +114,8 @@ class SuggestionInputSearch extends React.Component {
         } 
     }
 
-    getSuggestionsFor(term) {
-        const { recentSearches } = this.state;
-        return term !== EMPTY_SEARCH_TERM ? recentSearches.filter(it => it.toLowerCase().includes(term.toLowerCase())) : [];
+    handleOnSelectedItemIndex(selectedItemIndex) {
+        this.setState({ selectedItemIndex });
     }
 
     render() {
@@ -130,11 +133,13 @@ class SuggestionInputSearch extends React.Component {
                     onClick={this.handleOnSearch}
                     onKeyDown={this.handleOnKeyPress} 
                     ref={(input) => {this.inputRef = input}}
+                    className={this.inputClass}
                 />
                 <SuggestionList
                     show={showSuggestions} 
                     suggestions={suggestions} 
-                    handleOnClick={this.handleOnClickOnItem}
+                    onClickItem={this.handleOnClickOnItem}
+                    onSelectedItemIndex={this.handleOnSelectedItemIndex}
                     selectedItemIndex={selectedItemIndex}
                 />
             </div>
