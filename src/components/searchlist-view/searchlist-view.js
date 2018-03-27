@@ -2,7 +2,7 @@
 import React from 'react';
 import './searchlist-view.css';
 import PosterFilm from '../../domain/PosterFilm';
-import SuggestionInputSearch from './suggestion-input-search/suggestion-input-search';
+import SuggestionInputSearch from 'suggestion-react-input-search';
 
 type Props = {
     onSearch: Function,
@@ -43,8 +43,9 @@ const SearchlistView = ({ onSearch, onFilmClicked, posters }: Props) => {
            
             <SuggestionInputSearch 
                 onSubmitFunction={handleOnChange} 
-                recentSearches={['star wars', 'star wars IV', 'star trek', 'star wars I']} 
-                placeholder={'Search films...'} 
+                persistent={true}
+                placeholder={'Search films...'}
+                inputPosition={'center'} 
             />
             <div className="search-containner">
                 <p className="results-title">There are <strong>{posters.length} results</strong> matching your search</p>
