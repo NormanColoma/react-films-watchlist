@@ -5,16 +5,12 @@ body {
 }
 
 div {
-  float: left;
-  width: 100%;
+  /* float: left;
+  width: 100%; */
 }
 
 ul {
   list-style: none;
-}
-
-ul li {
-  float: left;
 }
 
 h1, h2 {
