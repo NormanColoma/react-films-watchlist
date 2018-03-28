@@ -30,9 +30,7 @@ a {
   font-family: 'Raleway', sans-serif;
   font-size: 2.3em;
   margin-bottom: 5px;
-  float: left;
   margin-top: 0px;
-  margin-left: 40px;
 }
 
 .default-title span {
@@ -44,8 +42,9 @@ a {
 .default-conatiner{
   padding: 15px 15px 15px 30px;
   margin-top: 130px;
-  float: none;
-  width: initial;
+  /* float: none;
+  width: initial; */
+  display: flex;
 }
 
 .default-img {

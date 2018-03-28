@@ -11,46 +11,50 @@ type Props = {
 };
 
 const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }: Props) => {
-    if(loading) {
+    if (loading) {
         return <div>
-                <h1 className="not-found-message">Fetching film...</h1>
-            </div>;
+            <h1 className="not-found-message">Fetching film...</h1>
+        </div>;
     }
-    if(!film) {
+    if (!film) {
         return <div>
-                <h1 className="not-found-message">The resource does not exist</h1>
-            </div>;
+            <h1 className="not-found-message">The resource does not exist</h1>
+        </div>;
     }
-    let input = <input onClick={ () => onAddToWatchlist(film) } type="button" className="default-rounded-btn" value="Want to watch" />;
+    let input = <input onClick={() => onAddToWatchlist(film)} type="button" className="default-rounded-btn" value="Want to watch" />;
     if (film.inWatchList) {
-        input = <input onClick={() => onRemoveFromWatchlist(film)} className="default-rounded-success-btn" type="button" value='Watching'/>;
+        input = <input onClick={() => onRemoveFromWatchlist(film)} className="default-rounded-success-btn" type="button" value='Watching' />;
     }
     return (
         <div className="default-conatiner">
-            <img className="default-img" src={film.poster} alt={film.name} />
-            <h1 className="default-title">{film.name}<span>({film.releasedDate})</span></h1>
-            <div className="film block options">
-                <ul>
-                    <li>
-                        <i className="fas fa-star gold-color"></i>
-                        <span>{film.rating}</span>
-                    </li>
-                </ul>
+            <div className="film-container__img">
+                <img className="default-img" src={film.poster} alt={film.name} />
             </div>
-            <div className="film block synopsys">
-                <h3 className="left">Synopsys</h3>
-                <p className="left">{film.synopsys}</p>
-            </div>
-            <div className="film block cast">
-                <h3 className="left">Cast</h3>
-                <p className="left">{film.actors}</p>
-            </div>
-            <div className="film block cast">
-                <h3 className="left">Director</h3>
-                <p className="left">{film.director}</p>
-            </div>
-            <div className="film block actions">
-                {input}
+            <div className="film-container__options">
+                <div className="film-container__title">
+                    <h1 className="default-title">{film.name}<span>({film.releasedDate})</span></h1>
+                    <ul>
+                        <li>
+                            <i className="fas fa-star gold-color"></i>
+                            <span>{film.rating}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div className="film-container__synopsys">
+                    <h3>Synopsys</h3>
+                    <p>{film.synopsys}</p>
+                </div>
+                <div className="film-container__cast">
+                    <h3>Cast</h3>
+                    <p>{film.actors}</p>
+                </div>
+                <div className="film-container__cast">
+                    <h3>Director</h3>
+                    <p>{film.director}</p>
+                </div>
+                <div className="film-container__actions">
+                    {input}
+                </div>
             </div>
         </div>
     )
