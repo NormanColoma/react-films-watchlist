@@ -49,7 +49,7 @@ const SearchlistView = ({ onSearch, onFilmClicked, posters }: Props) => {
             />
             <div className="search-containner">
                 <p className="results-title">There are <strong>{posters.length} results</strong> matching your search</p>
-                <div>
+                <div className="search-container__list">
                     <ul className="search-result-list">
                         {posterFilms}
                     </ul>

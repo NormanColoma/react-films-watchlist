@@ -4,11 +4,9 @@
     border-radius: 5px;
     color: white;
     padding: 10px 15px;
-    font-size: 14px;
+    font-size: 0.875rem;
     outline: none;
     cursor: pointer;
-    float: right;
-    margin: 15px;
     width: 100px;
     -webkit-box-shadow: 0 3px 6px rgba(0,29,54,0.12);
     box-shadow: 0 3px 6px rgba(0,29,54,0.12);

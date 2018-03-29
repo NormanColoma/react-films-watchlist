@@ -2,7 +2,7 @@
     margin-bottom: 50px;
 }
 
-.watchlist .film.titleReleaseContainer span svg {
+.film-release-container span svg {
     color: #a2d5b6;
 }
 
@@ -12,4 +12,26 @@
 
 .watchlist .film.extra-details-left-container .genre {
     color: #98c7d7 !important;
+}
+
+.film-release-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 1.25em;
+    text-align: left;
+    color: #545e6f;
+    -webkit-font-smoothing: antialiased;
+}
+
+.watchlist-film__title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.75em;
+    margin: 15px 0 5px 0;
+    font-weight: 600;
+}
+
+.watchlist-film__title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

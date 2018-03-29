@@ -1,39 +1,53 @@
-.film.block {
-    width: 70%;
-    margin-left: 40px;
+.film-container__options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 2.5em;
 }
 
-.film.block h3 {
-    margin-bottom: 8px;
+.film-container__title {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
 
-.film.block p {
-    text-align: justify;
-    margin: 0;
-    width: 100%;
-}
-
-.film.block svg {
-    font-size: 22px;
-}
-
-.film.block.options ul{
+.film-container__title ul {
     padding: 0;
+    margin: 0;
 }
 
-.film.block.options span {
-    margin-left: 5px;
+.film-container__synopsys {
+    text-align: justify;
+    width: 95%;
 }
 
-.film.block.actions {
-    width: 70%;
-    margin-top: 30px;
+.film-container__synopsys p {
+    margin: 0;
 }
 
-.film.block.actions input[type="button"] {
+.film-container__cast {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.film-container__cast p {
+    margin: 0;
+}
+
+.film-container__actions {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.film-container__actions input[type="button"] {
     width: 200px;
 }
 
 .gold-color {
     color: #D4AF37;
+    font-size: 22px;
 }
