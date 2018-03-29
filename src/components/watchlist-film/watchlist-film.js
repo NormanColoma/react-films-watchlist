@@ -11,17 +11,21 @@ type Props = {
 const WatchlistFilm = ({ film, onRemoveFilm }: Props) => {
     return (
         <div className="film container">
-            <img src={film.poster} alt={film.name} />
-            <div className="film titleContainer">
-                <div className="film titleReleaseContainer">
-                    <h2 className="film title">{film.name}</h2>
-                    <span><i className="fas fa-clock"></i>{film.duration}</span>
-                </div>
-                <div className="film fav" onClick={() => onRemoveFilm(film)}>
-                    <i className="fas fa-heart"></i>
+            <div className="film-inner-container">
+                <img src={film.poster} alt={film.name} />
+                <div className="film-inner-container__title">
+                    <div className="watchlist-film__title-container">
+                        <div className="film-release-container">
+                            <h2 className="watchlist-film__title">{film.name}</h2>
+                            <span><i className="fas fa-clock"></i>{film.duration}</span>
+                        </div>
+                        <div className="film fav" onClick={() => onRemoveFilm(film)}>
+                            <i className="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <p className="synopsys">{film.synopsys}</p>
                 </div>
             </div>
-            <p className="synopsys">{film.synopsys}</p>
             <div className="film extra-details-container">
                 <div className="film extra-details-left-container">
                     <ul>

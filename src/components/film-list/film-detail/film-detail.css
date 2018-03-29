@@ -72,26 +72,21 @@
     height: 16.25em;
     padding: 1.25em;
     border-radius: 25px;
-    float: left;
   }
   
   .film.container .synopsys {
     text-align: justify;
-    width: 95%;
+    width: 1040px;
     margin-left: 15px;
     font-size: 0.875em;
     color: #545e6f;
     -webkit-font-smoothing: antialiased;
   }
 
-  .film.titleContainer {
-  }
-
   .film.titleReleaseContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 94%;
     margin: 0 0 0 1.25em;
     text-align: left;
     color: #545e6f;
@@ -108,10 +103,6 @@
     font-size: 18px;
     float: left;
     margin: 1px 5px 0 0;
-  }
-
-  .film.rating, .film.fav {
-    margin-top: 1.25em;
   }
 
   .film.rating svg {

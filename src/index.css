@@ -4,11 +4,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-div {
-  /* float: left;
-  width: 100%; */
-}
-
 ul {
   list-style: none;
 }
@@ -42,8 +37,6 @@ a {
 .default-conatiner{
   padding: 15px 15px 15px 30px;
   margin-top: 130px;
-  /* float: none;
-  width: initial; */
   display: flex;
 }
 

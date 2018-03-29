@@ -18,7 +18,7 @@ const FilmDetail = ({ film, onFavFilm }: Props) => {
         <div className="film container">
             <div className="film-inner-container">
                 <img src={film.poster} alt={film.name} />
-                <div className="film titleContainer">
+                <div className="film-inner-container__title">
                     <div className="film titleReleaseContainer">
                         <div className="film-container__title-release">
                             <h2 className="film title">{film.name}</h2>
@@ -29,8 +29,6 @@ const FilmDetail = ({ film, onFavFilm }: Props) => {
                         </div>
                     </div>
                     <p className="synopsys">{film.synopsys}</p>
-                </div>
-                <div className="film-container__synopsys">
                 </div>
             </div>
             <div className="film extra-details-container">
