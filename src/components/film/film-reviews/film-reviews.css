@@ -1,0 +1,38 @@
+.reviews-container{
+    grid-column: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.reviews-container h1 {
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 10px;
+}
+
+.review-container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.review-container__header {
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 45px;
+}
+
+.review-container__header h3 {
+    margin: 0;
+}
+
+.review-container__header span {
+    font-size: 0.75rem;
+}
+
+.review-container__text {
+    text-align: start;
+    font-style: oblique;
+}
