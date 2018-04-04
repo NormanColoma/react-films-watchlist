@@ -1,0 +1,49 @@
+.film-suggested__container {
+    grid-row: 1 / -1;
+    grid-column: 3 / -1;
+    display: grid;
+    grid-column-gap: 0.5em;
+}
+
+.film-suggested__details {
+    grid-row: 1 / -1;
+    grid-column: 3 / -1;
+    display: flex;
+    margin-left: 1.75em;
+}
+
+.film-suggested__details img {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    height: 18.75em;
+}
+
+.film-suggested__info {
+    grid-column: 4;
+    grid-row: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-right: 1.56em;
+}
+
+.film-suggested__info h4 {
+    margin: 0;
+}
+
+.film-suggested__info p {
+    text-align: left;
+}
+
+.film-suggested__genres {
+    margin: 0;
+    font-size: 0.75rem;
+}
+
+.film-suggested__synopsys {
+    font-size: 0.9rem;
+}
+
+.film-suggested__release {
+    font-weight: 100;
+    margin-left: 0.3em;
+}
