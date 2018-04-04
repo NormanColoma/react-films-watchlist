@@ -14,6 +14,7 @@ const getFilter = (state: State, paramsFilter: Object) => paramsFilter || state.
 
 export const getFilm = (state: State) => state.selectedFilm;
 export const isLoading = (state: State) => state.loading;
+export const getSelectedFilmSuggested = (state : State) => state.selectedFilmSuggested; 
 
 export const getPlaylist = createSelector(
     [getFilms],
@@ -59,4 +60,4 @@ export const getSuggestedFilms = createSelector(
         }
         return firstSuggestedFilms;
     }
-)
+);

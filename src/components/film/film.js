@@ -7,12 +7,15 @@ import FilmSuggestions from './film-suggestions/film-suggestions';
 
 type Props = {
     film: Film,
+    selectedFilm: Film,
+    filmsSuggested: Array<Film>,
     loading: boolean,
     onAddToWatchlist: Function,
-    onRemoveFromWatchlist: Function
+    onRemoveFromWatchlist: Function,
+    onSelectSuggestedFilm: Function
 };
 
-const FilmView = ({ film, filmsSuggested, loading, onAddToWatchlist, onRemoveFromWatchlist }: Props) => {
+const FilmView = ({ film, filmsSuggested, selectedFilm, loading, onAddToWatchlist, onRemoveFromWatchlist, onSelectSuggestedFilm }: Props) => {
     if (loading) {
         return <div>
             <h1 className="not-found-message">Fetching film...</h1>
@@ -59,7 +62,7 @@ const FilmView = ({ film, filmsSuggested, loading, onAddToWatchlist, onRemoveFro
                         {input}
                     </div>
                 </div>
-                <FilmSuggestions films={filmsSuggested} />
+                <FilmSuggestions films={filmsSuggested} selectedFilm={selectedFilm} onSelectSuggestedFilm={onSelectSuggestedFilm} />
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 // @flow
 import { TOGGLE_FILM, ADD_TO_PLAYLIST, ADD_TO_WATCHLIST, REMOVE_FROM_WATCHLIST, SELECT_FILM, 
-  LOADING_FILM, FILTER_FILMS, ADD_TO_SEARCHLIST, CLEAR_SEARCHLIST, SEARCHLIST_ERROR } from './types';
+  LOADING_FILM, FILTER_FILMS, ADD_TO_SEARCHLIST, CLEAR_SEARCHLIST, SEARCHLIST_ERROR, SELECT_SUGGESTED_FILM } from './types';
 import Film from '../domain/Film';
 import PosterFilm from '../domain/PosterFilm';
 
@@ -59,4 +59,9 @@ export const clearSearchlist = () =>({
 export const searchlistError = (error: string) => ({
   type: SEARCHLIST_ERROR,
   error
+}: Action);
+
+export const selectSuggestedFilm = (id: string) => ({
+  type: SELECT_SUGGESTED_FILM,
+  id
 }: Action);
