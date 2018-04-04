@@ -12,7 +12,7 @@ type Props = {
     onRemoveFromWatchlist: Function
 };
 
-const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }: Props) => {
+const FilmView = ({ film, filmsSuggested, loading, onAddToWatchlist, onRemoveFromWatchlist }: Props) => {
     if (loading) {
         return <div>
             <h1 className="not-found-message">Fetching film...</h1>
@@ -59,7 +59,7 @@ const FilmView = ({ film, loading, onAddToWatchlist, onRemoveFromWatchlist }: Pr
                         {input}
                     </div>
                 </div>
-                <FilmSuggestions />
+                <FilmSuggestions films={filmsSuggested} />
             </div>
         </div>
     )

@@ -11,7 +11,7 @@ import { selectFilm, addToWatchlist, removeFromWatchlist, toggleFilm } from '../
 import { fetchFilmById } from '../../actions/async/index';
 
 //Reducers and actions
-import { getFilm, filmIsLoading, existsFilm } from '../../selectors'
+import { getFilm, filmIsLoading, existsFilm, getSuggestedFilms } from '../../selectors'
 import type { State } from '../../reducers/playlist';
 
 //Components
@@ -40,9 +40,10 @@ class FilmComponent extends Component <Props> {
     }
 
     render() {
-        const { film, loading } = this.props;
+        const { film, filmsSuggested, loading } = this.props;
         return <FilmView
             film={film}
+            filmsSuggested={filmsSuggested}
             loading={loading}
             onAddToWatchlist={film => this.handleAddFilmToWatchlist(film)}  
             onRemoveFromWatchlist={film => this.handleRemoveFilmFromWatchlist(film)}  
@@ -62,7 +63,8 @@ class FilmComponent extends Component <Props> {
 const mapStateToProps = (state: State, ownProps: Object) => ({
     film: getFilm(state),
     loading: filmIsLoading(state),
-    filmInStore: existsFilm(state, ownProps.match.params.id)
+    filmInStore: existsFilm(state, ownProps.match.params.id),
+    filmsSuggested: getSuggestedFilms(state, state)
 });
 
 const mapDispatchToProps = (dispatch: Function) => ({

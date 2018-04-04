@@ -27,3 +27,5 @@ export const isSomeGenreInFilter = (film: Film, filter: Object) => {
 
     return genres.some(it => it === filter.toLowerCase())
 }
+
+export const extractMainGenreFromFilm = (genres: string) => genres.substr(0, genres.indexOf(COMMA));

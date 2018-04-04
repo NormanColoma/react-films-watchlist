@@ -1,27 +1,20 @@
 import React from 'react';
 import './film-suggestions.css';
 
-const FilmSuggestions = () => {
+const renderSuggestedFilm = (film) => {
+    return (<div className="film-suggested">
+        <img className="film-suggested__img" src={film.poster} />
+    </div>);
+}
+
+const FilmSuggestions = ({ films }) => {
+    const suggestedFilms = films.map(it => renderSuggestedFilm(it));
+
     return (
         <div className="film-suggestions-container">
             <h1>More like this</h1>
             <div className="suggestions-grid">
-                <div className="film-suggested">
-                    <img className="film-suggested__img"
-                        src="https://ia.media-imdb.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg" />
-                </div>
-                <div className="film-suggested">
-                    <img className="film-suggested__img"
-                        src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg" />
-                </div>
-                <div className="film-suggested">
-                    <img className="film-suggested__img"
-                        src="https://images-na.ssl-images-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg" />
-                </div>
-                <div className="film-suggested">
-                    <img className="film-suggested__img"
-                        src="https://ia.media-imdb.com/images/M/MV5BMTYzOTc2NzU3N15BMl5BanBnXkFtZTcwNjY3MDE3NQ@@._V1_SX300.jpg" />
-                </div>
+                {suggestedFilms}
                 <div className="film-suggested__details">
                     <img src="https://ia.media-imdb.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg" />
                 </div>

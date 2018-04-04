@@ -1,6 +1,6 @@
 // @flow
 import { createSelector } from 'reselect';
-import { isSomeGenreInFilter } from './utils';
+import { isSomeGenreInFilter, extractMainGenreFromFilm } from './utils';
 import type { State } from '../../reducers/playlist';
 
 const ALL_GENRES: string = 'all';
@@ -34,3 +34,28 @@ export const getVisibleFilms = createSelector(
     (films, filter) => (filter === ALL_GENRES || filter === ALL_GENRES_LITERAL) ? films : 
         films.filter(it => isSomeGenreInFilter(it, filter))
 );
+
+export const getSuggestedFilms = createSelector(
+    [getPlaylist, getFilm],
+    (films, film) => {
+
+        let firstSuggestedFilms: Array<Object> = [];
+        if (films && films.length > 0 && film) {
+            const mainGenre: string = extractMainGenreFromFilm(film.genre);
+            const suggestedFilms: Array<Object> = films.filter(it => isSomeGenreInFilter(it, mainGenre) && it.id !== film.id);
+
+            if (suggestedFilms.length >= 4) {
+                let remainingSuggestedFilms: Array<Object> = [...suggestedFilms];
+                
+                for(let i=0;i<4;i++) {
+                    const randomIndex: number = Math.floor(Math.random()*remainingSuggestedFilms.length);
+                    const suggestedFilm: Object = remainingSuggestedFilms[randomIndex];
+
+                    remainingSuggestedFilms = remainingSuggestedFilms.filter(it => it.id !== suggestedFilm.id);
+                    firstSuggestedFilms = [...firstSuggestedFilms, suggestedFilm];
+                }
+            }
+        }
+        return firstSuggestedFilms;
+    }
+)
