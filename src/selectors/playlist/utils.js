@@ -29,3 +29,5 @@ export const isSomeGenreInFilter = (film: Film, filter: Object) => {
 }
 
 export const extractMainGenreFromFilm = (genres: string) => genres.substr(0, genres.indexOf(COMMA));
+
+export const isNotSameFilm = (film, anotherFilm) => film.id !== anotherFilm.id;
