@@ -21,7 +21,7 @@ export const extractGenresFromFilm = (genre: string) => {
     return genres;
 }
 
-export const isSomeGenreInFilter = (film: Film, filter: Object) => { 
+export const isSomeGenreInFilter = (film: Film, filter: string) => { 
     const genre = film.genre.replace(/\s/g, NONE);
     const genres = extractGenresFromFilm(genre.toLowerCase());
 
@@ -30,4 +30,4 @@ export const isSomeGenreInFilter = (film: Film, filter: Object) => {
 
 export const extractMainGenreFromFilm = (genres: string) => genres.substr(0, genres.indexOf(COMMA));
 
-export const isNotSameFilm = (film, anotherFilm) => film.id !== anotherFilm.id;
+export const isNotSameFilm = (film: Film, anotherFilm: Film) => film.id !== anotherFilm.id;

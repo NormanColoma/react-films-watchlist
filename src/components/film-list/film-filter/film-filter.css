@@ -28,13 +28,11 @@
 
 .btn-filter svg.last-up {
     float: right;
-    transform: rotate(360deg);
 }
 
 .btn-filter svg.last-down {
     float: right;
-    transition: .2s ease all;
-    transform: rotate(-180deg);
+    transform: rotate(180deg);
 }
 
 .select-filter {
@@ -48,8 +46,8 @@
     right: 83px;
     top: 190px;
     opacity: 0;
-    -webkit-transition: .2s ease all;
-    transition: .2s ease all;
+    -webkit-transition: .2s cubic-bezier(0.55, 0.055, 0.675, 0.19) all;
+    transition: .2s cubic-bezier(0.55, 0.055, 0.675, 0.19) all;
     transform: translateY(-10px) scale(0.96);
     visibility: hidden;
     display: flex;

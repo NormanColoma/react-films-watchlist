@@ -12,5 +12,9 @@
     display: grid;
     grid-template-columns: repeat(2, auto) 250px 1fr;
     grid-template-rows: repeat(3, auto);
+    grid-template-areas: "first-suggestions second-suggestions current-suggestion current-suggestion-info"
+                         "first-suggestions second-suggestions current-suggestion current-suggestion-info"
+                         "first-suggestions second-suggestions current-suggestion current-suggestion-info"
+                         ". . action-buttons .";  
     grid-column-gap: 5px;
 }

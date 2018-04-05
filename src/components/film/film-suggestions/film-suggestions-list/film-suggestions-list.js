@@ -3,8 +3,11 @@ import './film-suggestions-list.css';
 
 const FilmSuggestionsList = ({ films, selectedFilm, onMouseOver }) => {
     const list = films.map(it => {
+        const selectedClasses = 'film-suggested__img film-suggested__selected';
+        
         return <div className="film-suggested" key={it.id} onMouseOver={() => onMouseOver(it.id)}>
-            <img className={ selectedFilm.id === it.id ? 'film-suggested__img film-suggested__selected' : 'film-suggested__img' } 
+            <img className={ selectedFilm.id === it.id ?  selectedClasses : 'film-suggested__img' } 
+                alt={it.name}
                 src={it.poster} />
         </div>;
     });

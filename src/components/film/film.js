@@ -2,7 +2,6 @@
 import React from 'react';
 import Film from '../../domain/Film';
 import './film.css';
-import FilmReviews from './film-reviews/film-reviews';
 import FilmSuggestions from './film-suggestions/film-suggestions';
 
 type Props = {

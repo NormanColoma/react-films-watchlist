@@ -4,6 +4,8 @@
     display: grid;
     grid-column-gap: 0.5em;
     grid-row-gap: 0.75em;
+    width: 98%;
+    align-items: flex-start;
 }
 
 .film-suggested__details {
@@ -16,14 +18,15 @@
 .film-suggested__details img {
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     height: 18.75em;
+    width: 12.65em;
 }
 
 .film-suggested__info {
     grid-column: 4;
     grid-row: 1 / -1;
     display: grid;
-    margin-right: 1.56em;
     grid-template-rows: 2.5em 1fr 1.25em;
+    grid-template-areas: "title" "synopsys" "director";
 }
 
 .film-suggested__info h4 {
@@ -80,7 +83,7 @@
 }
 
 .film-suggested__director {
-    text-align: left;
+    justify-self: start;
     font-size: 0.8rem;
 }
 

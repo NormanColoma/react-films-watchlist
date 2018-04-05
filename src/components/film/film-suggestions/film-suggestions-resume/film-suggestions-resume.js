@@ -6,7 +6,7 @@ const FilmSuggestionsResume = ({ film, onClickNext }) => {
     return (
         <div className="film-suggested__container">
             <div className="film-suggested__details">
-                <img src={film.poster} />
+                <img src={film.poster} alt={film.name} />
             </div>
             <div className="film-suggested__info">
                 <div className="film-suggested__info-header">

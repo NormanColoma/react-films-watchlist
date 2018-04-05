@@ -5,7 +5,7 @@ import PosterFilm from '../domain/PosterFilm';
 export type State = {
     posters: PosterFilm,
     loading: boolean,
-    error: string
+    error: ?string
 }
 
 const initialState: State = { posters: {}, loading: false, error: null };

@@ -22,6 +22,7 @@ type Props = {
     searchFilms: Function,
     history: Object,
     searchFilms: Function,
+    clearSearch: Function
 };
 
 class SearchlistComponent extends Component <Props> {

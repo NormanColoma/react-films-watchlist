@@ -22,15 +22,18 @@ type Props = {
     fetchFilm: Function,
     addToWatchlist: Function,
     removeFromWatchlist: Function,
+    selectSuggestedFilm: Function,
     filmInStore: boolean,
     match: Object,
     film: Domain.Film,
+    selectedFilm: Domain.Film,
+    filmsSuggested: Array<Domain.Film>,
     loading: boolean
 };
 
 class FilmComponent extends Component <Props> {
     componentDidMount() {
-       const { selectFilm, fetchFilm, match, filmInStore, filmsSuggested } = this.props;
+       const { selectFilm, fetchFilm, match, filmInStore } = this.props;
 
         if (filmInStore) {
             selectFilm(match.params.id);

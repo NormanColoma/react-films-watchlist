@@ -10,9 +10,19 @@
     line-height: 20px;
     -webkit-font-smoothing: antialiased;
     opacity:0;
-    transition:opacity 0.5s linear;
 }
 
 .watchlist-counter.show {
-    opacity:1;
+    animation: easeOutBounce 1s 0s forwards;
+}
+
+@keyframes easeOutBounce {
+    0% {opacity: 0; -webkit-animation-timing-function: ease-in;}
+    33% {opacity: 0.2; -webkit-animation-timing-function: ease-out;}
+    50% {opacity: 0.4; -webkit-animation-timing-function: ease-in;}
+    66% {opacity: 0.6; -webkit-animation-timing-function: ease-out;}
+    82% {opacity: 0.7; -webkit-animation-timing-function: ease-in;}
+    92% {opacity: 0.8; -webkit-animation-timing-function: ease-out;}
+    97% {opacity: 0.9; -webkit-animation-timing-function: ease-in;}
+    100% { opacity: 1;}
 }

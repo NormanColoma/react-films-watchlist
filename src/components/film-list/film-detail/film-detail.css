@@ -109,13 +109,13 @@
     font-size: 1.5em;
     color:#98c7d7;
     cursor: pointer;
-    -webkit-transition: .2s ease all;
-    transition: .2s ease all;
+    -webkit-transition: scale .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: scale .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
   .film.rating svg:hover {
     color: #ce2262;
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 
   .film.fav svg {
