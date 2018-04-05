@@ -10,6 +10,10 @@
     align-items: flex-start;
 }
 
+.film-container__options h3 {
+    margin-bottom: 0.2rem;
+}
+
 .film-container__title {
     display: flex;
     flex-direction: column;
@@ -54,5 +58,6 @@
 
 .gold-color {
     color: #D4AF37;
-    font-size: 22px;
+    font-size: 1.375rem;
+    margin-right: 0.4rem;
 }
