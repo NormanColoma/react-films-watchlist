@@ -91,4 +91,11 @@ describe('action creators', () => {
 
         expect(Actions.searchlistError(error)).toEqual(expectedAction);
     });
+    
+    it('should return selectSuggestedFilm action', () => {
+        const id = 1;
+        const expectedAction = { type: Types.SELECT_SUGGESTED_FILM, id };
+
+        expect(Actions.selectSuggestedFilm(id)).toEqual(expectedAction);
+    });
 });

@@ -1,11 +1,12 @@
 import playlist from '../playlist';
-import { loadingFilm, selectFilm, addToPlaylist, toggleFilm, filterFilms } from '../../actions';
+import { loadingFilm, selectFilm, addToPlaylist, toggleFilm, filterFilms, selectSuggestedFilm } from '../../actions';
 
 describe('playlist reducer', () => {
     it('should return the initial state', () => {
         const initialState = { 
             films: {}, 
             selectedFilm: null, 
+            selectedFilmSuggested: null,
             loading: false, 
             filter: 'all' 
         };
@@ -17,7 +18,8 @@ describe('playlist reducer', () => {
     it('should toogle loading', () => {
         const expectedState = { 
             films: {}, 
-            selectedFilm: null, 
+            selectedFilm: null,
+            selectedFilmSuggested: null, 
             loading: true, 
             filter: 'all' 
         };
@@ -161,5 +163,24 @@ describe('playlist reducer', () => {
         };
 
         expect(playlist(initialState, filterFilms(newFilter))).toEqual(expectedState);
+    });
+
+    it('should set selected film in state', () => {
+        const film = { id: 1, name: 'film', inWatchList: false };
+        const initialState = { 
+            films: {
+                '1': film
+            }, 
+            selectedFilm: null, 
+            selectedFilmSuggested: null,
+            loading: false, 
+            filter: 'all' 
+        };
+
+        const filmId = 1;
+        const selectedFilmSuggested = { selectedFilmSuggested: film };
+        const expectedState = { ...initialState, ...selectedFilmSuggested };
+
+        expect(playlist(initialState, selectSuggestedFilm(filmId))).toEqual(expectedState);
     });
 });
