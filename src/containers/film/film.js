@@ -7,11 +7,11 @@ import { withRouter } from 'react-router-dom';
 import * as Domain from '../../domain/Film';
 
 //Actions creators
-import { selectFilm, addToWatchlist, removeFromWatchlist, toggleFilm } from '../../actions/index';
+import { selectFilm, addToWatchlist, removeFromWatchlist, toggleFilm, selectSuggestedFilm } from '../../actions/index';
 import { fetchFilmById } from '../../actions/async/index';
 
 //Reducers and actions
-import { getFilm, filmIsLoading, existsFilm } from '../../selectors'
+import { getFilm, filmIsLoading, existsFilm, getSuggestedFilms, getSelectedFilmSuggested } from '../../selectors'
 import type { State } from '../../reducers/playlist';
 
 //Components
@@ -30,7 +30,7 @@ type Props = {
 
 class FilmComponent extends Component <Props> {
     componentDidMount() {
-       const { selectFilm, fetchFilm, match, filmInStore } = this.props;
+       const { selectFilm, fetchFilm, match, filmInStore, filmsSuggested } = this.props;
 
         if (filmInStore) {
             selectFilm(match.params.id);
@@ -40,12 +40,16 @@ class FilmComponent extends Component <Props> {
     }
 
     render() {
-        const { film, loading } = this.props;
+        const { film, filmsSuggested, selectedFilm, loading } = this.props;
+
         return <FilmView
             film={film}
+            filmsSuggested={filmsSuggested}
+            selectedFilm={selectedFilm}
             loading={loading}
             onAddToWatchlist={film => this.handleAddFilmToWatchlist(film)}  
             onRemoveFromWatchlist={film => this.handleRemoveFilmFromWatchlist(film)}  
+            onSelectSuggestedFilm={id => this.handleSelectSuggestedFilm(id)}  
         />;
     }
 
@@ -56,13 +60,19 @@ class FilmComponent extends Component <Props> {
     handleRemoveFilmFromWatchlist(film: Domain.Film) {
         this.props.removeFromWatchlist(film);
     }
+
+    handleSelectSuggestedFilm(id: string) {
+        this.props.selectSuggestedFilm(id);
+    }
 }
 
 
 const mapStateToProps = (state: State, ownProps: Object) => ({
     film: getFilm(state),
     loading: filmIsLoading(state),
-    filmInStore: existsFilm(state, ownProps.match.params.id)
+    filmInStore: existsFilm(state, ownProps.match.params.id),
+    filmsSuggested: getSuggestedFilms(state, state),
+    selectedFilm: getSelectedFilmSuggested(state)
 });
 
 const mapDispatchToProps = (dispatch: Function) => ({
@@ -81,6 +91,9 @@ const mapDispatchToProps = (dispatch: Function) => ({
         dispatch(toggleFilm(film.id));
         dispatch(selectFilm(film.id));
         dispatch(removeFromWatchlist(film.id));
+    },
+    selectSuggestedFilm: (id: string) => {
+        dispatch(selectSuggestedFilm(id));
     }
 });
 

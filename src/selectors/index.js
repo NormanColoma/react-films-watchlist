@@ -9,6 +9,8 @@ export const getFilm = (state) => playlistSelectors.getFilm(state.playlist);
 export const filmIsLoading = (state) => playlistSelectors.isLoading(state.playlist);
 export const existsFilm = (state, filmId) => playlistSelectors.existsFilm(state.playlist, filmId);
 export const getVisibleFilms = (state, paramsFilter) => playlistSelectors.getVisibleFilms(state.playlist, paramsFilter);
+export const getSuggestedFilms = (state) => playlistSelectors.getSuggestedFilms(state.playlist, state.playlist);
+export const getSelectedFilmSuggested = (state) => playlistSelectors.getSelectedFilmSuggested(state.playlist);
 
 //Watchlist
 export const getWatchlist = (state) => watchlistSelectors.getWatchlist(state.watchlist);

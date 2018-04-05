@@ -1,0 +1,17 @@
+.film-suggested {
+    cursor: pointer;
+}
+
+.film-suggested__selected {
+    cursor: pointer;
+    box-shadow: 0 0 0 2px #008CBA;
+}
+
+.film-suggested:hover img {
+    box-shadow: 0 0 0 2px #008CBA;
+    box-sizing: border-box;
+}
+
+.film-suggested__img {
+    height: 140px;
+}

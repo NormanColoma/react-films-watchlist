@@ -5,6 +5,7 @@ import Film from '../domain/Film';
 export type State = {
     films: Object,
     selectedFilm: ?Film,
+    selectedFilmSuggested: ?Film,
     loading: boolean,
     filter: string
 };
@@ -12,6 +13,7 @@ export type State = {
 const initialState: State = { 
     films: {}, 
     selectedFilm: null, 
+    selectedFilmSuggested: null, 
     loading: false, 
     filter: 'all' 
 };
@@ -57,6 +59,13 @@ const playlist = (state: State = initialState, action: Object) => {
         case Types.FILTER_FILMS : {
             const { filter } = action;
             return Object.assign({}, state, { filter });
+        }
+
+        case Types.SELECT_SUGGESTED_FILM : {
+            const { id } = action;
+            const selectedFilmSuggested = state.films[id];
+
+            return Object.assign({}, state, { selectedFilmSuggested });
         }
         default: 
             return state;
