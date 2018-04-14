@@ -21,7 +21,7 @@
     "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
-    "suggestion-react-input-search": "^1.0.6"
+    "suggestion-react-input-search": "^1.0.9"
   },
   "scripts": {
     "start": "react-scripts start",

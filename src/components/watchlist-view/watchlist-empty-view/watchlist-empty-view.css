@@ -1,0 +1,7 @@
+.watchlist__empty-message{
+    font-size: 20px;
+}
+
+.watchlist__empty-message a {
+    margin-left: 0.2rem;
+}
