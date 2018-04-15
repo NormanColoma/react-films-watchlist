@@ -3,6 +3,7 @@ import React from 'react';
 import Film from '../../domain/Film';
 import './film.css';
 import FilmSuggestions from './film-suggestions/film-suggestions';
+import showLoading from '../../hocs/show-loading';
 
 type Props = {
     film: Film,
@@ -14,12 +15,7 @@ type Props = {
     onSelectSuggestedFilm: Function
 };
 
-const FilmView = ({ film, filmsSuggested, selectedFilm, loading, onAddToWatchlist, onRemoveFromWatchlist, onSelectSuggestedFilm }: Props) => {
-    if (loading) {
-        return <div>
-            <h1 className="not-found-message">Fetching film...</h1>
-        </div>;
-    }
+const FilmViewComponent = ({ film, filmsSuggested, selectedFilm, loading, onAddToWatchlist, onRemoveFromWatchlist, onSelectSuggestedFilm }: Props) => {
     if (!film) {
         return <div>
             <h1 className="not-found-message">The resource does not exist</h1>
@@ -67,4 +63,5 @@ const FilmView = ({ film, filmsSuggested, selectedFilm, loading, onAddToWatchlis
     )
 };
 
+const FilmView = showLoading(FilmViewComponent);
 export default FilmView;
