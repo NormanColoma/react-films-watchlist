@@ -1,9 +1,9 @@
 // @flow
-import React from 'react';
+import React, { lazy } from 'react';
 import Film from '../../domain/Film';
 import './film.css';
-import FilmSuggestions from './film-suggestions/film-suggestions';
 import showLoading from '../../hocs/show-loading';
+const FilmSuggestions = lazy(() => import('./film-suggestions/film-suggestions'));
 
 type Props = {
     film: Film,

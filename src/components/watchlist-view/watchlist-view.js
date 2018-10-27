@@ -1,10 +1,10 @@
 // @flow
-import React from 'react';
+import React, { lazy } from 'react';
 import './watchlist-view.css';
 
-import WatchlistFilm from '../watchlist-film/watchlist-film';
-import WatchlistEmptyView from './watchlist-empty-view/watchlist-empty-view';
 import Film from '../../domain/Film';
+const WatchlistFilm = lazy(() => import('../watchlist-film/watchlist-film'));
+const WatchlistEmptyView = lazy(() => import('./watchlist-empty-view/watchlist-empty-view'));
 
 type Props = {
     watchlist: Array<Film>,

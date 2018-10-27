@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 
 // Redux
 import { connect } from 'react-redux';
 
-// Containers
-import Playlist from '../../containers/playlist/playlist';
-import WatchList from '../../containers/watchlist/watchlist';
-import Searchlist from '../../containers/searchlist/searchlist';
-
 // Components and styles
 import Nav from '../nav/nav';
 import './App.css';
 import { getNumberOfFilmsInWatchList } from '../../selectors';
+
+// Containers
+const Playlist = lazy(() => import('../../containers/playlist/playlist'));
+const WatchList = lazy(() => import('../../containers/watchlist/watchlist'));
+const Searchlist = lazy(() => import('../../containers/searchlist/searchlist'));
 
 const AppRoutes = [
   {
@@ -41,10 +41,12 @@ class App extends Component {
       <div className="App">
         <div className="App-container">
           <Nav numberOfFilms={numberOfFilms}/>
-          <Switch>
-            <Redirect exact from="/" to="/films" />
-            {AppRoutes.map(route => <Route key={route.path} path={route.path} component={route.component} />)}
-          </Switch>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Switch>
+              <Redirect exact from="/" to="/films" />
+              {AppRoutes.map(route => <Route key={route.path} path={route.path} component={route.component} />)}
+            </Switch>
+          </Suspense>
         </div>
       </div>
     );

@@ -1,10 +1,11 @@
 // @flow
-import React from 'react';
+import React, { lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import FilmDetail from './film-detail/film-detail';
-import Film from '../../containers/film/film';
-import FilmFilter from './film-filter/film-filter';
 import './film-list.css';
+
+const FilmFilter = lazy(() => import('./film-filter/film-filter'));
+const Film = lazy(() => import('../../containers/film/film'));
+const FilmDetail = lazy(() => import('./film-detail/film-detail'));
 
 type Props = {
     playlist: Array<Object>,

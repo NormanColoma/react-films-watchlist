@@ -46,6 +46,7 @@ const SearchlistView = ({ onSearch, onFilmClicked, posters }: Props) => {
                 persistent={true}
                 placeholder={'Search films...'}
                 inputPosition={'center'} 
+                floatingLabel={true}
             />
             <div className="search-containner">
                 <p className="results-title">There are <strong>{posters.length} results</strong> matching your search</p>
